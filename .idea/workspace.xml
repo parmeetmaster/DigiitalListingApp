@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9b95fbd6-fcc1-4cc1-b99b-f29f4425b4c9" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1q2EO55Z0GW1M2E1DATc8WWHaD6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b95fbd6-fcc1-4cc1-b99b-f29f4425b4c9" name="Default Changelist" comment="" />
+      <created>1616269249645</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616269249645</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616691301866">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1616691301866" />
+    <state x="442" y="69" key="#xdebugger.evaluate" timestamp="1616610288126">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="442" y="69" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1616610288126" />
+    <state x="467" y="121" key="FileChooserDialogImpl" timestamp="1616689330189">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="467" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616689330189" />
+    <state width="1322" height="184" key="GridCell.Tab.0.bottom" timestamp="1616613097220">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="184" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616613097220" />
+    <state width="1322" height="184" key="GridCell.Tab.0.center" timestamp="1616613097219">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="184" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616613097219" />
+    <state width="1322" height="184" key="GridCell.Tab.0.left" timestamp="1616613097219">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="184" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616613097219" />
+    <state width="1322" height="184" key="GridCell.Tab.0.right" timestamp="1616613097219">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="184" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616613097219" />
+    <state x="188" y="0" key="SettingsEditor" timestamp="1616829515525">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="188" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616829515525" />
+    <state x="389" y="97" width="587" height="534" key="find.popup" timestamp="1616611679818">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="389" y="97" width="587" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1616611679818" />
+    <state x="343" y="159" key="run.anything.popup" timestamp="1616553731129">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="343" y="159" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1616553731129" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/screens/home/home.dart</url>
+          <line>52</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/screens/home/home.dart</url>
+          <line>53</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/screens/home/home.dart</url>
+          <line>54</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/blocs/product_detail/product_detail_bloc.dart</url>
+          <line>24</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/blocs/product_detail/product_detail_bloc.dart</url>
+          <line>25</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/blocs/product_detail/product_detail_bloc.dart</url>
+          <line>28</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/blocs/product_detail/product_detail_bloc.dart</url>
+          <line>29</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/api/api.dart</url>
+          <line>131</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/api/api.dart</url>
+          <line>127</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/blocs/product_detail/product_detail_bloc.dart</url>
+          <line>23</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint suspend="THREAD" type="dart-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
