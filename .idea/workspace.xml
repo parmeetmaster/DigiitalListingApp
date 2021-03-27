@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b95fbd6-fcc1-4cc1-b99b-f29f4425b4c9" name="Default Changelist" comment="" />
+    <list default="true" id="9b95fbd6-fcc1-4cc1-b99b-f29f4425b4c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/kotlin/com/naxosoft/itsmeforyou/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,21 +40,33 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1q2EO55Z0GW1M2E1DATc8WWHaD6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/android" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Practice folder\wetransfer-a1ade2\source\android\app" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
@@ -49,6 +87,9 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616691301866">
       <screen x="0" y="0" width="1366" height="728" />
@@ -58,34 +99,50 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="442" y="69" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1616610288126" />
-    <state x="467" y="121" key="FileChooserDialogImpl" timestamp="1616689330189">
+    <state x="467" y="121" key="FileChooserDialogImpl" timestamp="1616868930485">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="467" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616689330189" />
-    <state width="1322" height="184" key="GridCell.Tab.0.bottom" timestamp="1616613097220">
+    <state x="467" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616868930485" />
+    <state x="547" y="278" key="Github.Dialog.Accounts.Choose" timestamp="1616829801452">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="184" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616613097220" />
-    <state width="1322" height="184" key="GridCell.Tab.0.center" timestamp="1616613097219">
+    <state x="547" y="278" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1616829801452" />
+    <state x="531" y="245" key="Github.ShareDialog" timestamp="1616829796180">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="184" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616613097219" />
-    <state width="1322" height="184" key="GridCell.Tab.0.left" timestamp="1616613097219">
+    <state x="531" y="245" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1616829796180" />
+    <state x="288" y="65" key="Github.UntrackedFilesDialog" timestamp="1616829610193">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="184" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616613097219" />
-    <state width="1322" height="184" key="GridCell.Tab.0.right" timestamp="1616613097219">
+    <state x="288" y="65" key="Github.UntrackedFilesDialog/0.0.1366.728@0.0.1366.728" timestamp="1616829610193" />
+    <state width="1322" height="408" key="GridCell.Tab.0.bottom" timestamp="1616869508455">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="184" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616613097219" />
+    <state width="1322" height="408" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616869508455" />
+    <state width="1322" height="408" key="GridCell.Tab.0.center" timestamp="1616869508455">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="408" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616869508455" />
+    <state width="1322" height="408" key="GridCell.Tab.0.left" timestamp="1616869508455">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="408" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616869508455" />
+    <state width="1322" height="408" key="GridCell.Tab.0.right" timestamp="1616869508455">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="408" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616869508455" />
     <state x="188" y="0" key="SettingsEditor" timestamp="1616829515525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="188" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616829515525" />
-    <state x="389" y="97" width="587" height="534" key="find.popup" timestamp="1616611679818">
+    <state x="389" y="97" width="587" height="592" key="find.popup" timestamp="1616869444053">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="389" y="97" width="587" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1616611679818" />
+    <state x="389" y="97" width="587" height="592" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1616869444053" />
+    <state x="487" y="268" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1616829745169">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="487" y="268" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1366.728@0.0.1366.728" timestamp="1616829745169" />
     <state x="343" y="159" key="run.anything.popup" timestamp="1616553731129">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

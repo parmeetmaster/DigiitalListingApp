@@ -46,7 +46,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.naxosoft.itsmeforyou"
+        applicationId "com.digitalraiz.itsme4u"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
