@@ -1,8 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:listar_flutter_pro/blocs/item-listing/bloc.dart';
 
 import 'bloc.dart';
 
 class AppBloc {
+  static final itemListingBloc = ItemListingBloc();
   static final applicationBloc = ApplicationBloc();
   static final languageBloc = LanguageBloc();
   static final themeBloc = ThemeBloc();
@@ -21,6 +23,9 @@ class AppBloc {
   static final registerBloc = RegisterBloc();
 
   static final List<BlocProvider> providers = [
+    BlocProvider<ItemListingBloc>(
+      create: (context) => itemListingBloc,
+    ),
     BlocProvider<ApplicationBloc>(
       create: (context) => applicationBloc,
     ),
@@ -72,6 +77,7 @@ class AppBloc {
   ];
 
   static void dispose() {
+    itemListingBloc.close();
     applicationBloc.close();
     languageBloc.close();
     themeBloc.close();

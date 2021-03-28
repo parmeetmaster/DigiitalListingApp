@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:select_dialog/select_dialog.dart';
 
 class StepperDemo extends StatefulWidget {
   @override
@@ -55,6 +56,22 @@ class _StepperDemoState extends State<StepperDemo> {
                         TextFormField(
                           decoration: InputDecoration(labelText: 'Pincode'),
                         ),
+                        RaisedButton( child: Text("click test"), onPressed: (){
+                          String ex1 = "No value selected";
+
+                          SelectDialog.showModal<String>(
+                            context,
+                            label: "Simple Example",
+                            selectedValue: ex1,
+                            items: List.generate(50, (index) => "Item $index"),
+                            onChange: (String selected) {
+                              setState(() {
+                                ex1 = selected;
+                              });
+                            },
+                          );
+
+                        })
                       ],
                     ),
                     isActive: _currentStep >= 0,

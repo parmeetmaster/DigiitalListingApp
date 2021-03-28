@@ -15,3 +15,4 @@ export 'review/bloc.dart';
 export 'search/bloc.dart';
 export 'theme/bloc.dart';
 export 'wishlist/bloc.dart';
+export 'item-listing/bloc.dart';
