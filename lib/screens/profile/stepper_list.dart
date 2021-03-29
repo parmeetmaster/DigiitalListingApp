@@ -1,159 +1,384 @@
 import 'package:flutter/material.dart';
+import 'package:listar_flutter_pro/providers/lisitItemProvider.dart';
+import 'package:multi_select_flutter/multi_select_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:select_dialog/select_dialog.dart';
+import 'package:listar_flutter_pro/configs/constants.dart';
 
 class StepperDemo extends StatefulWidget {
   @override
   _StepperDemoState createState() => _StepperDemoState();
 }
 
+class Animal {
+  final int id;
+  final String name;
+
+  Animal({
+    this.id,
+    this.name,
+  });
+}
+
 class _StepperDemoState extends State<StepperDemo> {
   int _currentStep = 0;
   StepperType stepperType = StepperType.vertical;
 
+  @override
+  void initState() {
+    final provider = Provider.of<ListItemProvider>(context, listen: false);
+    provider.currunt_state = appstate.defaultstate;
+    provider.loadData();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    final provider = Provider.of<ListItemProvider>(context, listen: false);
+    provider.context = context;
+    provider.skey = new GlobalKey<ScaffoldState>();
+    return Scaffold(
+      key: provider.skey,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text('Add List Item'),
         centerTitle: true,
       ),
-      body:  Container(
-        child: Column(
-          children: [
-            Expanded(
-              child: Stepper(
-                type: stepperType,
-                physics: ScrollPhysics(),
-                currentStep: _currentStep,
-                onStepTapped: (step) => tapped(step),
-                onStepContinue:  continued,
-                onStepCancel: cancel,
-                steps: <Step>[
-                  Step(
-                    title: new Text('Informtion'),
-                    content: Column(
-                      children: <Widget>[
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Title'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Email Address'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Phone'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Country'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'State '),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Address'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Pincode'),
-                        ),
-                        RaisedButton( child: Text("click test"), onPressed: (){
-                          String ex1 = "No value selected";
+      body: Consumer<ListItemProvider>(builder: (context, value, child) {
+        if (value.currunt_state == appstate.laoding_complete)
+          return Container(
+            child: Column(
+              children: [
+                Expanded(
+                  child: Stepper(
+                    type: stepperType,
 
-                          SelectDialog.showModal<String>(
-                            context,
-                            label: "Simple Example",
-                            selectedValue: ex1,
-                            items: List.generate(50, (index) => "Item $index"),
-                            onChange: (String selected) {
-                              setState(() {
-                                ex1 = selected;
-                              });
-                            },
-                          );
-
-                        })
-                      ],
-                    ),
-                    isActive: _currentStep >= 0,
-                    state: _currentStep >= 0 ?
-                    StepState.complete : StepState.disabled,
+                    physics: ScrollPhysics(),
+                    currentStep: _currentStep,
+                    onStepTapped: (step) => tapped(step),
+                    onStepContinue: continued,
+                    onStepCancel: cancel,
+                    steps: <Step>[
+                      Step(
+                        title: new Text('Informtion'),
+                        content: Column(
+                          children: <Widget>[
+                            TextFormField(
+                              controller: value.titleController,
+                              decoration: InputDecoration(labelText: 'Title'),
+                            ),
+                            TextFormField(
+                              controller: value.emailController,
+                              decoration:
+                                  InputDecoration(labelText: 'Email Address'),
+                            ),
+                            TextFormField(
+                              controller: value.phoneController,
+                              decoration: InputDecoration(labelText: 'Phone'),
+                            ),
+                            TextFormField(
+                              controller: value.addressController,
+                              decoration: InputDecoration(labelText: 'Address'),
+                            ),
+                            TextFormField(
+                              controller: value.pincodeController,
+                              decoration: InputDecoration(labelText: 'Pincode'),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                value.showCategoriesDialog();
+                              },
+                              child: AbsorbPointer(
+                                child: TextFormField(
+                                  controller: value.categoryController,
+                                  decoration:
+                                      InputDecoration(labelText: 'Category'),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Colors.black26,
+                                  width: 2,
+                                ),
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  MultiSelectBottomSheetField(
+                                    initialChildSize: 0.4,
+                                    listType: MultiSelectListType.CHIP,
+                                    searchable: true,
+                                    buttonText: Text("Select Feature"),
+                                    title: Text("Select multiple Feature"),
+                                    items: value.feature_items,
+                                    onConfirm: (values) {
+                                      value.featureSelected = values;
+                                      value.showSelected();
+                                    },
+                                    chipDisplay: MultiSelectChipDisplay(
+                                      onTap: (value) {
+                                        setState(() {
+                                          value.featureSelected.remove(value);
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                  value.featureSelected == null ||
+                                          value.featureSelected.isEmpty
+                                      ? Container(
+                                          padding: EdgeInsets.all(10),
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            "None selected",
+                                            style: TextStyle(
+                                                color: Colors.black54),
+                                          ))
+                                      : Container(),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Colors.black26,
+                                  width: 2,
+                                ),
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  MultiSelectBottomSheetField(
+                                    initialChildSize: 0.4,
+                                    listType: MultiSelectListType.CHIP,
+                                    searchable: true,
+                                    buttonText: Text("Select Tags"),
+                                    title: Text("Select multiple Tags"),
+                                    items: value.tags_items,
+                                    onConfirm: (values) {
+                                      value.tagsSelected = values;
+                                      value.showSelected();
+                                    },
+                                    chipDisplay: MultiSelectChipDisplay(
+                                      onTap: (value) {
+                                        setState(() {
+                                          value.tagsSelected.remove(value);
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                  value.tagsSelected == null ||
+                                          value.tagsSelected.isEmpty
+                                      ? Container(
+                                          padding: EdgeInsets.all(10),
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            "None selected",
+                                            style: TextStyle(
+                                                color: Colors.black54),
+                                          ))
+                                      : Container(),
+                                ],
+                              ),
+                            ),
+                            TextFormField(
+                              controller: value.exceptController,
+                              decoration: InputDecoration(labelText: 'Except'),
+                            ),
+                          ],
+                        ),
+                        isActive: _currentStep >= 0,
+                        state: _currentStep >= 0
+                            ? StepState.complete
+                            : StepState.disabled,
+                      ),
+                      Step(
+                        title: new Text('Address'),
+                        content: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                InkWell(
+                                  onTap: (){
+                                    value.loadPrimaryImage();
+                                  },
+                                  child: Column(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 30,
+                                        backgroundColor: Colors.grey[200],
+                                        child: Icon(Icons.camera_alt),
+                                      ),
+                                      Text(
+                                        "Primary\nImage",
+                                        textAlign: TextAlign.center,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Divider(
+                                  thickness: 1,
+                                ),
+                                InkWell(
+                                  onTap: (){
+                                    value.loadSecondaryImages();
+                                  },
+                                  child: Column(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 30,
+                                        backgroundColor: Colors.grey[200],
+                                        child: Icon(Icons.image),
+                                      ),
+                                      Text(
+                                        "Secondary\nImages",
+                                        textAlign: TextAlign.center,
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                            Divider(
+                              thickness: 1,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                value.showCountiresDialog();
+                              },
+                              child: AbsorbPointer(
+                                child: TextFormField(
+                                  controller: value.countryController,
+                                  decoration:
+                                      InputDecoration(labelText: 'Country'),
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                value.showStateDialog();
+                              },
+                              child: AbsorbPointer(
+                                child: TextFormField(
+                                  controller: value.stateController,
+                                  decoration:
+                                      InputDecoration(labelText: 'State '),
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                value.showCityDialog();
+                              },
+                              child: AbsorbPointer(
+                                child: TextFormField(
+                                  controller: value.cityController,
+                                  decoration:
+                                      InputDecoration(labelText: 'City '),
+                                ),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: value.websiteController,
+                              decoration:
+                                  InputDecoration(labelText: 'Website '),
+                            ),
+                          ],
+                        ),
+                        isActive: _currentStep >= 0,
+                        state: _currentStep >= 1
+                            ? StepState.complete
+                            : StepState.disabled,
+                      ),
+                      Step(
+                        title: new Text('Social Media'),
+                        content: Column(
+                          children: <Widget>[
+                            TextFormField(
+                              controller: value.facebookController,
+                              decoration:
+                                  InputDecoration(labelText: 'Facebook'),
+                            ),
+                            TextFormField(
+                              controller: value.twitterController,
+                              decoration: InputDecoration(labelText: 'Twitter'),
+                            ),
+                            TextFormField(
+                              controller: value.instagramController,
+                              decoration:
+                                  InputDecoration(labelText: 'Instagram'),
+                            ),
+                            TextFormField(
+                              controller: value.linkedinController,
+                              decoration:
+                                  InputDecoration(labelText: 'Linkedin'),
+                            ),
+                            TextFormField(
+                              controller: value.youtubeController,
+                              decoration: InputDecoration(labelText: 'Youtube'),
+                            ),
+                            TextFormField(
+                              controller: value.pinterestController,
+                              decoration:
+                                  InputDecoration(labelText: 'Pintrest'),
+                            ),
+                          ],
+                        ),
+                        isActive: _currentStep >= 0,
+                        state: _currentStep >= 2
+                            ? StepState.complete
+                            : StepState.disabled,
+                      ),
+                    ],
                   ),
-                  Step(
-                    title: new Text('Address'),
-                    content: Column(
-                      children: <Widget>[
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Website '),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Category'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Tags, Features, Except'),
-                        ),
-                      ],
-                    ),
-                    isActive: _currentStep >= 0,
-                    state: _currentStep >= 1 ?
-                    StepState.complete : StepState.disabled,
-                  ),
-                  Step(
-                    title: new Text('Social Media'),
-                    content: Column(
-                      children: <Widget>[
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Facebook'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Twitter'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Instagram'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Linkedin'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Youtube'),
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(labelText: 'Pintrest'),
-                        ),
-                      ],
-                    ),
-                    isActive:_currentStep >= 0,
-                    state: _currentStep >= 2 ?
-                    StepState.complete : StepState.disabled,
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          );
+        else
+          return Container(
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+      }),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.list),
         onPressed: switchStepsType,
       ),
-
     );
   }
+
   switchStepsType() {
     setState(() => stepperType == StepperType.vertical
         ? stepperType = StepperType.horizontal
         : stepperType = StepperType.vertical);
   }
 
-  tapped(int step){
+  tapped(int step) {
+
     setState(() => _currentStep = step);
   }
 
-  continued(){
-    _currentStep < 2 ?
-    setState(() => _currentStep += 1): null;
+  continued() {
+ final provider= Provider.of<ListItemProvider>(context,listen:false);
+    _currentStep < 2 ? setState(() => _currentStep += 1) : null;
+ if(_currentStep>=2){
+   provider.submit();
+ }
+
+
+
   }
-  cancel(){
-    _currentStep > 0 ?
-    setState(() => _currentStep -= 1) : null;
+
+  cancel() {
+    _currentStep > 0 ? setState(() => _currentStep -= 1) : null;
   }
 }

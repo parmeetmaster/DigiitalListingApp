@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:listar_flutter_pro/api/http_manager.dart';
 import 'package:listar_flutter_pro/models/model.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class Api {
   ///URL API
@@ -43,6 +45,84 @@ class Api {
   static const String SAVE_COMMENT = "/save_comment";
   static const String GET_PRODUCT_DETAIL = "/get_product_details";
   static const String GET_AREA = "/location_list";
+  static const String CATEGORY = "/category";
+  static const String FEATURE = "/features";
+  static const String TAGS = "/tags";
+
+  // lsiting item
+  ///category api
+   Future<dynamic> getCategoriesForListing() async {
+    final result = await httpManager.get(url: CATEGORY);
+    return result;
+  }
+  ///features api
+  Future<dynamic> getFeatureForListing() async {
+    final result = await httpManager.get(url: FEATURE);
+    return result;
+  }
+  ///tags api
+  Future<dynamic> getTagsListing() async {
+    final result = await httpManager.get(url: TAGS);
+    return result;
+  }
+
+  ///countries api
+  Future<dynamic> getCountryListing() async {
+    final result = await httpManager.get(url: "/country");
+    return result;
+  }
+
+  Future<dynamic> getStateListing(params) async {
+    var dio = Dio();
+    try {
+      FormData formData = new FormData.fromMap(params);
+      var response = await dio.post("https://naxosoft.com/projects/itsme4u/api/state", data: formData);
+      return response.data;
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<dynamic> getCitiesListing(params) async {
+    var dio = Dio();
+    try {
+      FormData formData = new FormData.fromMap(params);
+      var response = await dio.post("https://naxosoft.com/projects/itsme4u/api/city", data: formData);
+      return response.data;
+    } catch (e) {
+      print(e);
+    }
+  }
+
+    getApiClient(String token) async {
+     Dio _dio=new Dio();
+    _dio.interceptors.clear();
+     _dio.interceptors.add(PrettyDioLogger(
+       requestHeader: true,
+       requestBody: true,
+       responseBody: true,
+       responseHeader: false,
+       compact: false,
+     ));
+
+    _dio.interceptors
+        .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
+      // Do something before request is sent
+      options.headers["Authorization"] = "Bearer " + token;
+      return options;
+    },onResponse:(Response response) {
+      // Do something with response data
+      return response; // continue
+    }, onError: (DioError error) async {
+
+    }));
+    _dio.options.baseUrl = "https://naxosoft.com/projects/itsme4u/api";
+    return _dio;
+  }
+
+
+
+
 
   ///Login api
   static Future<dynamic> login(params) async {

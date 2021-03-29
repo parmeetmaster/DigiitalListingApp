@@ -2,7 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:listar_flutter_pro/app.dart';
+import 'package:listar_flutter_pro/providers/lisitItemProvider.dart';
 import 'package:listar_flutter_pro/utils/utils.dart';
+import 'package:provider/provider.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -26,5 +28,16 @@ class AppBlocObserver extends BlocObserver {
 
 void main() {
   Bloc.observer = AppBlocObserver();
-  runApp(App());
+  runApp(
+      MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (ctx) => ListItemProvider()),
+
+          ],
+        child: App()
+      )
+  );
+
+
+
 }
