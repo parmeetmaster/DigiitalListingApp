@@ -10,7 +10,7 @@ class LocationError extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        LocationStatus status = await detectCurruntLocation();
+        LocationStatus status = await LocationUtils().getCurruntLocation();
         if (status.errcode == location_status.noerror) {
           Navigator.pop(context);
         }

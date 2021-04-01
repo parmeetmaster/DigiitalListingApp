@@ -8,6 +8,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:listar_flutter_pro/configs/constants.dart';
 import 'package:listar_flutter_pro/providers/location_provider.dart';
 import 'package:listar_flutter_pro/utils/UUIDGenerator.dart';
+import 'package:listar_flutter_pro/utils/location_util.dart';
 import 'package:provider/provider.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -18,8 +19,8 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+   static CameraPosition kGooglePlex = CameraPosition(
+    target: LatLng(24.385798, 71.9164845),
     zoom: 14.4746,
   );
 
@@ -27,6 +28,20 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   void initState() {
     final provider = Provider.of<LocationProvider>(context, listen: false);
+    provider.markers={};
+    provider. markers.add(Marker(
+      markerId: MarkerId(LocationUtils.position.toString()),
+      position: LatLng(LocationUtils.position.latitude,LocationUtils.position.longitude),
+      infoWindow: InfoWindow(
+        title: 'Location Selected',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+    ));
+       kGooglePlex = CameraPosition(
+      target: LatLng(LocationUtils.position.latitude, LocationUtils.position.longitude),
+      zoom: 14.4746,
+    );
+
 
   }
 
@@ -70,7 +85,7 @@ class _LocationScreenState extends State<LocationScreen> {
             mapToolbarEnabled: false,
             markers: value.markers,
             mapType: MapType.normal,
-            initialCameraPosition: _kGooglePlex,
+            initialCameraPosition: kGooglePlex,
             onMapCreated: (GoogleMapController controller) {
               value.map_controller = controller;
             },

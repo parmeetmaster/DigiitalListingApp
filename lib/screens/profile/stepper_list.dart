@@ -30,6 +30,7 @@ class _StepperDemoState extends State<StepperDemo> {
   void initState() {
     final provider = Provider.of<ListItemProvider>(context, listen: false);
     provider.currunt_state = appstate.defaultstate;
+    provider.skey = new GlobalKey<ScaffoldState>();
     provider.loadData();
   }
 
@@ -37,7 +38,7 @@ class _StepperDemoState extends State<StepperDemo> {
   Widget build(BuildContext context) {
     final provider = Provider.of<ListItemProvider>(context, listen: false);
     provider.context = context;
-    provider.skey = new GlobalKey<ScaffoldState>();
+
     return Scaffold(
       key: provider.skey,
       appBar: AppBar(
@@ -77,9 +78,15 @@ class _StepperDemoState extends State<StepperDemo> {
                               controller: value.phoneController,
                               decoration: InputDecoration(labelText: 'Phone'),
                             ),
-                            TextFormField(
-                              controller: value.addressController,
-                              decoration: InputDecoration(labelText: 'Address'),
+                            InkWell(onTap: (){
+                              Navigator.pushNamed(context,LocationScreen.classname);
+                            },
+                              child: AbsorbPointer(
+                                child: TextFormField(
+                                  controller: value.addressController,
+                                  decoration: InputDecoration(labelText: 'Address'),
+                                ),
+                              ),
                             ),
                             TextFormField(
                               controller: value.pincodeController,
@@ -375,8 +382,8 @@ class _StepperDemoState extends State<StepperDemo> {
  final provider= Provider.of<ListItemProvider>(context,listen:false);
     _currentStep < 2 ? setState(() => _currentStep += 1) : null;
  if(submit_flag>2){
-  // provider.submit();
-   Navigator.pushNamed(context,LocationScreen.classname);
+   provider.submit();
+
  }
 
 

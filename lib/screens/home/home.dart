@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
 
 
   getLocation() async {
-    LocationStatus status=await detectCurruntLocation();
+    LocationStatus status=await LocationUtils().getCurruntLocation();
     if(status.errcode==location_status.permanent_denied){
       Navigator.pushNamed(context, LocationError.classname);
     }else if(status.errcode==location_status.currunt_denied){

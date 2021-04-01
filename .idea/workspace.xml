@@ -25,17 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b95fbd6-fcc1-4cc1-b99b-f29f4425b4c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/google_place_response.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/providers/location_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/error_screen/no_locationError.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/location/location_picker.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/UUIDGenerator.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/location_util.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
@@ -43,24 +33,17 @@
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/api.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/configs/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/configs/constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/configs/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/configs/routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/providers/lisitItemProvider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/lisitItemProvider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/error_screen/no_locationError.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/error_screen/no_locationError.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/location/location_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/location/location_picker.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/profile/stepper_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/profile/stepper_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/Ads.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/Ads.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/location_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/location_util.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
@@ -148,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617049052904</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Data is added map is integrated">
+      <created>1617293287225</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617293287226</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,7 +157,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Every File Updated&#10;package name and serivice json" />
     <MESSAGE value="Dio is added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dio is added" />
+    <MESSAGE value="Data is added map is integrated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data is added map is integrated" />
   </component>
   <component name="WindowStateProjectService">
     <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616691301866">
@@ -178,18 +169,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="82" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1617292395734" />
-    <state x="442" y="69" key="#xdebugger.evaluate" timestamp="1617290362716">
+    <state x="442" y="69" key="#xdebugger.evaluate" timestamp="1617296052030">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="442" y="69" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1617290362716" />
+    <state x="442" y="69" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1617296052030" />
     <state x="506" y="113" key="AndroidProcessChooserDialog" timestamp="1617291733064">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="506" y="113" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1617291733064" />
-    <state x="341" y="0" key="CommitChangelistDialog2" timestamp="1617049050038">
+    <state x="341" y="0" key="CommitChangelistDialog2" timestamp="1617293282115">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="341" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1617049050038" />
+    <state x="341" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1617293282115" />
     <state width="467" height="466" key="DebuggerActiveHint" timestamp="1617050729215">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -210,22 +201,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="288" y="65" key="Github.UntrackedFilesDialog/0.0.1366.728@0.0.1366.728" timestamp="1616829610193" />
-    <state width="1322" height="2" key="GridCell.Tab.0.bottom" timestamp="1617293150404">
+    <state width="1322" height="176" key="GridCell.Tab.0.bottom" timestamp="1617298477117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1617293150404" />
-    <state width="1322" height="2" key="GridCell.Tab.0.center" timestamp="1617293150403">
+    <state width="1322" height="176" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1617298477117" />
+    <state width="1322" height="176" key="GridCell.Tab.0.center" timestamp="1617298477117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1617293150403" />
-    <state width="1322" height="2" key="GridCell.Tab.0.left" timestamp="1617293150403">
+    <state width="1322" height="176" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1617298477117" />
+    <state width="1322" height="176" key="GridCell.Tab.0.left" timestamp="1617298477117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1617293150403" />
-    <state width="1322" height="2" key="GridCell.Tab.0.right" timestamp="1617293150403">
+    <state width="1322" height="176" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1617298477117" />
+    <state width="1322" height="176" key="GridCell.Tab.0.right" timestamp="1617298477117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1617293150403" />
+    <state width="1322" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1617298477117" />
     <state x="188" y="0" key="SettingsEditor" timestamp="1616829515525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -309,34 +300,19 @@
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
-          <line>51</line>
-          <option name="timeStamp" value="38" />
+          <url>file://$PROJECT_DIR$/lib/utils/location_util.dart</url>
+          <line>20</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
-          <line>54</line>
-          <option name="timeStamp" value="39" />
+          <url>file://$PROJECT_DIR$/lib/screens/profile/stepper_list.dart</url>
+          <line>384</line>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
-          <line>53</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
-          <line>55</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
-          <line>49</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
-          <line>48</line>
-          <option name="timeStamp" value="43" />
+          <url>file://$PROJECT_DIR$/lib/screens/profile/stepper_list.dart</url>
+          <line>380</line>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

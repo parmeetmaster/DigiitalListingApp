@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:listar_flutter_pro/api/api.dart';
 import 'package:listar_flutter_pro/configs/constants.dart';
 import 'package:listar_flutter_pro/models/lisiting-item/category_model.dart';
@@ -15,6 +16,7 @@ import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:listar_flutter_pro/configs/constants.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:select_dialog/select_dialog.dart';
 import 'package:dio/dio.dart';
 import 'package:listar_flutter_pro/configs/config.dart';
@@ -23,6 +25,8 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:http_parser/http_parser.dart';
+
+import 'location_provider.dart';
 
 class ListItemProvider extends ChangeNotifier {
   CategoryData catagories;
@@ -264,9 +268,25 @@ class ListItemProvider extends ChangeNotifier {
     return file;
   }
 
+  getDate(){
+    DateTime date=new DateTime.now();
+    final DateTime now = DateTime.now();
+    final DateFormat formatter = DateFormat('dd-MM-yyyy');//"20-08-2020"
+    final String formatted = formatter.format(now);
+   return formatted;
+
+  }
+
   void submit() async {
     print("submission done");
 // primary images
+    if(profileImage.path.split('/').last==null){
+      showtoast(skey, "No Image selected");
+      return;
+    }
+
+
+
     String fileName = profileImage.path.split('/').last;
 
     MultipartFile primary_image =
@@ -338,8 +358,15 @@ class ListItemProvider extends ChangeNotifier {
         }
       }
 
-      // tagsSelected
+      // location data
+      final locationProvider=Provider.of<LocationProvider>(context,listen: false);
+      if(locationProvider.markers==null || locationProvider.markers.isEmpty){
+        showtoast(skey, "Location not detected");
+      return;
+      }
 
+
+      // tagsSelected
       Dio dio = await Api().getApiClient("${Application.user.token}");
       var map = {
         "name": titleController.text,
@@ -352,11 +379,11 @@ class ListItemProvider extends ChangeNotifier {
         "phone": phoneController.text,
         "email": emailController.text,
         "website": websiteController.text,
-        "date_picker": "20-08-2020", //todo
+        "date_picker": getDate(), //todo
         "min_price": "1500", //todo
         "max_price": "25000", //todo
-        "latitude": "27.2046", //todo
-        "longitude": "77.4977", //todo
+        "latitude": locationProvider.markers.first.position.latitude, //todo
+        "longitude": locationProvider.markers.first.position.longitude, //todo
         "status": "Active", //todo
         "excerpt": exceptController.text,
         "fb": facebookController.text,
