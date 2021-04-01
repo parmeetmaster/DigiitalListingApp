@@ -6,9 +6,11 @@ import 'package:listar_flutter_pro/blocs/bloc.dart';
 import 'package:listar_flutter_pro/configs/config.dart';
 import 'package:listar_flutter_pro/models/model.dart';
 import 'package:listar_flutter_pro/models/model_ads.dart';
+import 'package:listar_flutter_pro/screens/error_screen/no_locationError.dart';
 import 'package:listar_flutter_pro/screens/home/home_category_item.dart';
 import 'package:listar_flutter_pro/screens/home/home_category_list.dart';
 import 'package:listar_flutter_pro/screens/home/home_sliver_app_bar.dart';
+import 'package:listar_flutter_pro/utils/location_util.dart';
 import 'package:listar_flutter_pro/utils/utils.dart';
 import 'package:listar_flutter_pro/widgets/widget.dart';
 import 'package:shimmer/shimmer.dart';
@@ -26,7 +28,19 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     AppBloc.homeBloc.add(OnLoadingHome());
+    getLocation();
+
     super.initState();
+  }
+
+
+  getLocation() async {
+    LocationStatus status=await detectCurruntLocation();
+    if(status.errcode==location_status.permanent_denied){
+      Navigator.pushNamed(context, LocationError.classname);
+    }else if(status.errcode==location_status.currunt_denied){
+      Navigator.pushNamed(context, LocationError.classname);
+    }
   }
 
   ///Refresh

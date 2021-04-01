@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:listar_flutter_pro/api/http_manager.dart';
+import 'package:listar_flutter_pro/configs/constants.dart';
 import 'package:listar_flutter_pro/models/model.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -120,7 +122,12 @@ class Api {
     return _dio;
   }
 
+   getPlaceName(List<Marker> markers,){
+    Dio dio =new Dio();
+    return  dio.post(
+         "https://maps.googleapis.com/maps/api/geocode/json?latlng=${markers.first.position.latitude},${markers.first.position.longitude}&key=${google_place_api_key}");
 
+   }
 
 
 

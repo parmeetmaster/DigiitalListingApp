@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:select_dialog/select_dialog.dart';
 import 'package:listar_flutter_pro/configs/constants.dart';
 
+import '../location/location_picker.dart';
+
 class StepperDemo extends StatefulWidget {
   @override
   _StepperDemoState createState() => _StepperDemoState();
@@ -59,7 +61,7 @@ class _StepperDemoState extends State<StepperDemo> {
                     onStepCancel: cancel,
                     steps: <Step>[
                       Step(
-                        title: new Text('Informtion'),
+                        title: new Text('Informtion',style: TextStyle(fontSize: 12),),
                         content: Column(
                           children: <Widget>[
                             TextFormField(
@@ -361,17 +363,20 @@ class _StepperDemoState extends State<StepperDemo> {
         ? stepperType = StepperType.horizontal
         : stepperType = StepperType.vertical);
   }
-
+  int submit_flag=0;
   tapped(int step) {
-
+    submit_flag=step;
     setState(() => _currentStep = step);
   }
 
+
   continued() {
+    submit_flag++;
  final provider= Provider.of<ListItemProvider>(context,listen:false);
     _currentStep < 2 ? setState(() => _currentStep += 1) : null;
- if(_currentStep>=2){
-   provider.submit();
+ if(submit_flag>2){
+  // provider.submit();
+   Navigator.pushNamed(context,LocationScreen.classname);
  }
 
 
@@ -379,6 +384,7 @@ class _StepperDemoState extends State<StepperDemo> {
   }
 
   cancel() {
+    submit_flag--;
     _currentStep > 0 ? setState(() => _currentStep -= 1) : null;
   }
 }

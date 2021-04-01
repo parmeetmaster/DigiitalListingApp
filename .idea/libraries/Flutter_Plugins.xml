@@ -22,10 +22,15 @@
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_analytics-6.3.0" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.6.7+21" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/share-0.6.5+4" />
-      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-1.1.1" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-7.0.3" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.1+1" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/multi_image_picker-4.7.15" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-1.2.0" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/google_api_headers-0.1.1+2" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-0.4.3+4" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-6.2.1" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_web-1.0.1" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/app_settings-4.0.3" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

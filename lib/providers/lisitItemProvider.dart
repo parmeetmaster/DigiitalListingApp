@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:listar_flutter_pro/api/api.dart';
 import 'package:listar_flutter_pro/configs/constants.dart';
 import 'package:listar_flutter_pro/models/lisiting-item/category_model.dart';
@@ -12,13 +14,19 @@ import 'package:listar_flutter_pro/utils/toast.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:listar_flutter_pro/configs/constants.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:select_dialog/select_dialog.dart';
 import 'package:dio/dio.dart';
 import 'package:listar_flutter_pro/configs/config.dart';
 import 'package:listar_flutter_pro/utils/logger.dart';
+import 'dart:async';
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:http_parser/http_parser.dart';
 
 class ListItemProvider extends ChangeNotifier {
   CategoryData catagories;
+  CategoryDataItem choosen_category;
   FeatureModel featureModel;
   CommonListingModel tagsModel;
   List<dynamic> featureSelected = [];
@@ -36,6 +44,10 @@ class ListItemProvider extends ChangeNotifier {
   BuildContext context;
   List<Asset> images = List<Asset>();
   String _error = 'No Error Dectected';
+  List<Asset> secondary_imges = List<Asset>();
+  List<Asset> primaryImages = List<Asset>();
+  final picker = ImagePicker();
+  File profileImage;
 
   //information
   TextEditingController titleController = new TextEditingController();
@@ -114,6 +126,7 @@ class ListItemProvider extends ChangeNotifier {
       onChange: (String selected) {
         int index = catagories.data.indexWhere((data) => data.name == selected);
         categoryController.text = catagories.data[index].name;
+        choosen_category = catagories.data[index];
       },
     );
   }
@@ -208,35 +221,22 @@ class ListItemProvider extends ChangeNotifier {
   }
 
   Future<void> loadPrimaryImage() async {
-    List<Asset> resultList = List<Asset>();
-    String error = 'No Error Dectected';
+    final pickedFile = await picker.getImage(
+        source: ImageSource.gallery, preferredCameraDevice: CameraDevice.front);
 
-    try {
-      resultList = await MultiImagePicker.pickImages(
-        maxImages: 1,
-        enableCamera: true,
-        selectedAssets: images,
-        cupertinoOptions: CupertinoOptions(takePhotoIcon: "chat"),
-        materialOptions: MaterialOptions(
-          actionBarColor: "#e6634d",
-          actionBarTitle: "Select Primary Images",
-          allViewTitle: "All Photos",
-          useDetailsView: false,
-          selectCircleStrokeColor: "#e6634d",
-        ),
-      );
-    } on Exception catch (e) {
-      error = e.toString();
+    if (pickedFile != null) {
+      profileImage = File(pickedFile.path);
+    } else {
+      print('No image selected.');
     }
   }
 
   Future<void> loadSecondaryImages() async {
-    List<Asset> resultList = List<Asset>();
     String error = 'No Error Dectected';
 
     try {
-      resultList = await MultiImagePicker.pickImages(
-        maxImages: 300,
+      secondary_imges = await MultiImagePicker.pickImages(
+        maxImages: 5,
         enableCamera: true,
         selectedAssets: images,
         cupertinoOptions: CupertinoOptions(takePhotoIcon: "chat"),
@@ -253,8 +253,46 @@ class ListItemProvider extends ChangeNotifier {
     }
   }
 
+  Future<File> getImageFileFromAssets(Asset asset) async {
+    final byteData = await asset.getByteData();
+    final tempFile =
+        File("${(await getTemporaryDirectory()).path}/${asset.name}");
+    final file = await tempFile.writeAsBytes(
+      byteData.buffer
+          .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes),
+    );
+    return file;
+  }
+
   void submit() async {
     print("submission done");
+// primary images
+    String fileName = profileImage.path.split('/').last;
+
+    MultipartFile primary_image =
+        await MultipartFile.fromFile(profileImage.path, filename: fileName);
+
+    /* secondary images*/
+
+    List<Asset> images = secondary_imges;
+    List<MultipartFile> multipartImageList = new List<MultipartFile>();
+    if (null != images) {
+      for (Asset asset in images) {
+        /*    ByteData byteData = await asset.getByteData();
+        List<int> imageData =  byteData.buffer.asUint8List();
+        MultipartFile multipartFile =  new MultipartFile.fromBytes(
+          imageData,
+          filename: 'load_image.jpg',
+        contentType: MediaType("image", "jpg"),
+        );
+        multipartImageList.add(multipartFile);*/
+        File f = await getImageFileFromAssets(asset);
+        MultipartFile sec_img =
+            await MultipartFile.fromFile(f.path, filename: fileName);
+        multipartImageList.add(sec_img);
+      }
+    }
+
     print("token is ${Application.user.token}");
 
     if (titleController.text.isEmpty) {
@@ -282,40 +320,64 @@ class ListItemProvider extends ChangeNotifier {
       return;
     }
     if (emailController.text.isEmpty) {
-      showtoast(skey, "pincode Can'nt be empty");
+      showtoast(skey, "Email Can'nt be empty");
       return;
     }
+    List<int> feature_list = [];
+    if (featureSelected.length > 0) {
+      for (dynamic item in featureSelected) {
+        DataFeature d = item as DataFeature;
+        feature_list.add(d.id);
+      }
 
-    Dio dio = await Api().getApiClient("${Application.user.token}");
-    var map = {
-      "name": titleController.text,
-      "country": countryController.text,
-      "state": stateController.text,
-      "state": stateController.text,
-      "location": cityController.text,
-      "address": addressController.text,
-      "postalcode": pincodeController.text,
-      "phone": phoneController.text,
-      "email": emailController.text,
-      "website": websiteController.text,
-      "date_picker": "20-08-2020", //todo
-      "min_price": "1500", //todo
-      "max_price": "25000", //todo
-      "latitude": "27.2046", //todo
-      "longitude": "77.4977", //todo
-      "status": "Active", //todo
-      "excerpt": exceptController.text,
-      "fb": facebookController.text,
-      "twitter": twitterController.text,
-      "pinterest": pinterestController.text,
-      "linkedin": linkedinController.text,
-      "instagram": instagramController.text,
-      "youtube": youtubeController.text,
-      "youtube": youtubeController.text,
-    };
+      List<int> tags_list = [];
+      if (tagsSelected.length > 0) {
+        for (dynamic item in tagsSelected) {
+          DataItems d = item as DataItems;
+          tags_list.add(d.id);
+        }
+      }
 
-    var formdata = FormData.fromMap(map);
+      // tagsSelected
 
-    dio.post("/add_listing", data: formdata);
+      Dio dio = await Api().getApiClient("${Application.user.token}");
+      var map = {
+        "name": titleController.text,
+        "country": countryController.text,
+        "state": stateController.text,
+        "state": stateController.text,
+        "location": cityController.text,
+        "address": addressController.text,
+        "postalcode": pincodeController.text,
+        "phone": phoneController.text,
+        "email": emailController.text,
+        "website": websiteController.text,
+        "date_picker": "20-08-2020", //todo
+        "min_price": "1500", //todo
+        "max_price": "25000", //todo
+        "latitude": "27.2046", //todo
+        "longitude": "77.4977", //todo
+        "status": "Active", //todo
+        "excerpt": exceptController.text,
+        "fb": facebookController.text,
+        "twitter": twitterController.text,
+        "pinterest": pinterestController.text,
+        "linkedin": linkedinController.text,
+        "instagram": instagramController.text,
+        "youtube": youtubeController.text,
+        "youtube": youtubeController.text,
+        "tags": jsonEncode(tags_list),
+        "features": jsonEncode(feature_list),
+        "category": choosen_category.id,
+       "files": multipartImageList,
+        //  "image":primary_image,
+        "image": primary_image,
+      };
+
+      var formdata = FormData.fromMap(map);
+
+      Response resp = await dio.post("/add_listing", data: formdata);
+
+    }
   }
 }

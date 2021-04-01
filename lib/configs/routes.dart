@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:listar_flutter_pro/screens/error_screen/no_locationError.dart';
 import 'package:listar_flutter_pro/screens/profile/add_list_item.dart';
+import 'file:///D:/Practice%20folder/wetransfer-a1ade2/source/lib/screens/location/location_picker.dart';
 import 'package:listar_flutter_pro/screens/screen.dart';
 
 class Routes {
@@ -13,6 +15,7 @@ class Routes {
   static const String productDetail = "/productDetail";
   static const String searchHistory = "/searchHistory";
   static const String category = "/category";
+
   static const String editProfile = "/editProfile";
   static const String changePassword = "/changePassword";
   static const String changeLanguage = "/changeLanguage";
@@ -32,9 +35,25 @@ class Routes {
   static const String message = "/message";
   static const String notifications = "/notifications";
   static const String addlistitem = "/addlistitem";
-
+  static const String locationscreen = LocationScreen.classname;
+  static const String locationerror = LocationError.classname;
   Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case locationscreen:
+        return MaterialPageRoute(
+          builder: (context) {
+            return LocationScreen();
+          },
+        );
+      case locationerror:
+        return MaterialPageRoute(
+          builder: (context) {
+            return LocationError();
+          },
+        );
+
+
+
       case signIn:
         return MaterialPageRoute(
           builder: (context) {

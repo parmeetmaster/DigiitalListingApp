@@ -8,6 +8,7 @@ import 'package:listar_flutter_pro/screens/screen.dart';
 import 'package:listar_flutter_pro/utils/utils.dart';
 
 import 'blocs/application/application_event.dart';
+import 'utils/location_util.dart';
 
 class App extends StatefulWidget {
   @override
@@ -19,9 +20,11 @@ class _AppState extends State<App> {
 
   @override
   void initState() {
+
     AppBloc.applicationBloc.add(OnSetupApplication());
     super.initState();
   }
+
 
   @override
   void dispose() {

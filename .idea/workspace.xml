@@ -25,14 +25,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b95fbd6-fcc1-4cc1-b99b-f29f4425b4c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/configs/constants.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/lisiting-item/category_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/lisiting-item/city_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/lisiting-item/feature_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/lisiting-item/lisitng-response.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/lisiting-item/tag_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/providers/lisitItemProvider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/toast.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/google_place_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/providers/location_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/error_screen/no_locationError.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/location/location_picker.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/UUIDGenerator.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/location_util.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
@@ -50,12 +49,18 @@
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api/api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/api.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/configs/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/configs/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/configs/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/configs/routes.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/providers/lisitItemProvider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/lisitItemProvider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/home.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/profile/stepper_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/profile/stepper_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/Ads.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/Ads.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
@@ -90,12 +95,18 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Practice folder\wetransfer-a1ade2\source\lib\screens\location" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Practice folder\wetransfer-a1ade2\source\assets\images" />
+      <recent name="D:\Practice folder\wetransfer-a1ade2\source\lib\utils" />
+      <recent name="D:\Practice folder\wetransfer-a1ade2\source\lib\providers" />
       <recent name="D:\Practice folder\wetransfer-a1ade2\source\android\app" />
     </key>
   </component>
@@ -130,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616930733421</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Dio is added">
+      <created>1617049052904</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617049052904</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,33 +166,42 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Every File Updated&#10;package name and serivice json" />
-    <option name="LAST_COMMIT_MESSAGE" value="Every File Updated&#10;package name and serivice json" />
+    <MESSAGE value="Dio is added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dio is added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616691301866">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1616691301866" />
-    <state x="492" y="82" key="#com.intellij.ide.util.MemberChooser" timestamp="1616941564701">
+    <state x="492" y="82" key="#com.intellij.ide.util.MemberChooser" timestamp="1617292395734">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="492" y="82" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1616941564701" />
-    <state x="442" y="69" key="#xdebugger.evaluate" timestamp="1616997167347">
+    <state x="492" y="82" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1617292395734" />
+    <state x="442" y="69" key="#xdebugger.evaluate" timestamp="1617290362716">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="442" y="69" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1616997167347" />
-    <state x="341" y="0" key="CommitChangelistDialog2" timestamp="1616930730242">
+    <state x="442" y="69" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1617290362716" />
+    <state x="506" y="113" key="AndroidProcessChooserDialog" timestamp="1617291733064">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="341" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1616930730242" />
+    <state x="506" y="113" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1617291733064" />
+    <state x="341" y="0" key="CommitChangelistDialog2" timestamp="1617049050038">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="341" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1617049050038" />
+    <state width="467" height="466" key="DebuggerActiveHint" timestamp="1617050729215">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="467" height="466" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1617050729215" />
     <state x="467" y="121" key="FileChooserDialogImpl" timestamp="1616868930485">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="467" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616868930485" />
-    <state x="547" y="278" key="Github.Dialog.Accounts.Choose" timestamp="1616871143608">
+    <state x="547" y="278" key="Github.Dialog.Accounts.Choose" timestamp="1617049094947">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="547" y="278" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1616871143608" />
+    <state x="547" y="278" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1617049094947" />
     <state x="531" y="245" key="Github.ShareDialog" timestamp="1616829796180">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -183,63 +210,67 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="288" y="65" key="Github.UntrackedFilesDialog/0.0.1366.728@0.0.1366.728" timestamp="1616829610193" />
-    <state width="1322" height="128" key="GridCell.Tab.0.bottom" timestamp="1617048597784">
+    <state width="1322" height="2" key="GridCell.Tab.0.bottom" timestamp="1617293150404">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="128" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1617048597784" />
-    <state width="1322" height="128" key="GridCell.Tab.0.center" timestamp="1617048597784">
+    <state width="1322" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1617293150404" />
+    <state width="1322" height="2" key="GridCell.Tab.0.center" timestamp="1617293150403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="128" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1617048597784" />
-    <state width="1322" height="128" key="GridCell.Tab.0.left" timestamp="1617048597784">
+    <state width="1322" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1617293150403" />
+    <state width="1322" height="2" key="GridCell.Tab.0.left" timestamp="1617293150403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="128" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1617048597784" />
-    <state width="1322" height="128" key="GridCell.Tab.0.right" timestamp="1617048597784">
+    <state width="1322" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1617293150403" />
+    <state width="1322" height="2" key="GridCell.Tab.0.right" timestamp="1617293150403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="128" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1617048597784" />
+    <state width="1322" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1617293150403" />
     <state x="188" y="0" key="SettingsEditor" timestamp="1616829515525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="188" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616829515525" />
-    <state x="279" y="99" key="Vcs.Push.Dialog.v2" timestamp="1616871163867">
+    <state x="279" y="99" key="Vcs.Push.Dialog.v2" timestamp="1617049089103">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="279" y="99" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1616871163867" />
-    <state x="389" y="97" width="587" height="592" key="find.popup" timestamp="1617047441682">
+    <state x="279" y="99" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1617049089103" />
+    <state x="389" y="97" width="587" height="592" key="find.popup" timestamp="1617282364404">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="389" y="97" width="587" height="592" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1617047441682" />
+    <state x="389" y="97" width="587" height="592" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1617282364404" />
     <state x="394" y="155" key="git4idea.merge.GitPullDialog" timestamp="1616871128158">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="394" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1616871128158" />
-    <state x="487" y="268" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1616829745169">
+    <state x="487" y="268" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1617049080411">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="487" y="268" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1366.728@0.0.1366.728" timestamp="1616829745169" />
-    <state x="343" y="159" key="run.anything.popup" timestamp="1616553731129">
+    <state x="487" y="268" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1366.728@0.0.1366.728" timestamp="1617049080411" />
+    <state x="343" y="159" key="run.anything.popup" timestamp="1617286201110">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="343" y="159" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1616553731129" />
+    <state x="343" y="159" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1617286201110" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1617049118494">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1617049118494" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/lib/screens/home/home.dart</url>
-          <line>52</line>
+          <line>66</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/lib/screens/home/home.dart</url>
-          <line>53</line>
+          <line>67</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/lib/screens/home/home.dart</url>
-          <line>54</line>
+          <line>68</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
@@ -264,12 +295,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/lib/api/api.dart</url>
-          <line>211</line>
+          <line>218</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/lib/api/api.dart</url>
-          <line>207</line>
+          <line>214</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
@@ -278,9 +309,34 @@
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/providers/lisitItemProvider.dart</url>
-          <line>135</line>
-          <option name="timeStamp" value="57" />
+          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
+          <line>51</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
+          <line>54</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
+          <line>53</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
+          <line>55</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
+          <line>49</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/providers/location_provider.dart</url>
+          <line>48</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
