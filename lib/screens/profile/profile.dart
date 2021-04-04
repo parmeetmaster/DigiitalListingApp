@@ -70,6 +70,23 @@ class _ProfileState extends State<Profile> {
                               //Add list item
                               AppListTitle(
                                 title: Translate.of(context).translate(
+                                  'Update list Item',
+                                ),
+                                trailing: RotatedBox(
+                                  quarterTurns: UtilLanguage.isRTL() ? 2 : 0,
+                                  child: Icon(
+                                    Icons.keyboard_arrow_right,
+                                    textDirection: TextDirection.ltr,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  _onNavigate(Routes.displaylisting);
+                                },
+                              ),
+
+
+                              AppListTitle(
+                                title: Translate.of(context).translate(
                                   'Add list item',
                                 ),
                                 trailing: RotatedBox(

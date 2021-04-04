@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:listar_flutter_pro/api/api.dart';
@@ -12,6 +14,7 @@ import 'package:listar_flutter_pro/models/lisiting-item/feature_model.dart';
 import 'package:listar_flutter_pro/models/lisiting-item/tag_model.dart';
 import 'package:listar_flutter_pro/models/model_category.dart';
 import 'package:listar_flutter_pro/utils/toast.dart';
+import 'package:listar_flutter_pro/utils/validation.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:listar_flutter_pro/configs/constants.dart';
@@ -76,6 +79,55 @@ class ListItemProvider extends ChangeNotifier {
   TextEditingController youtubeController = new TextEditingController();
   TextEditingController pinterestController = new TextEditingController();
 
+  reset(){
+     catagories=null;
+     choosen_category=null;
+     featureModel=null;
+     tagsModel=null;
+   featureSelected = [];
+  tagsSelected = [];
+     currunt_state = appstate.defaultstate;
+     feature_items=null;
+     tags_items=null;
+     countries=null;
+     state=null;
+     cities=null;
+     active_country=null;
+     active_state=null;
+     active_city=null;
+    skey;
+   images = List<Asset>();
+     _error = 'No Error Dectected';
+   secondary_imges = List<Asset>();
+     primaryImages = List<Asset>();
+
+     profileImage=null;
+
+    //information
+     titleController = new TextEditingController();
+     emailController = new TextEditingController();
+     phoneController = new TextEditingController();
+     addressController = new TextEditingController();
+     pincodeController = new TextEditingController();
+     exceptController = new TextEditingController();
+
+    // address section
+     categoryController = new TextEditingController();
+     countryController = new TextEditingController();
+     stateController = new TextEditingController();
+     cityController = new TextEditingController();
+     websiteController = new TextEditingController();
+
+    // Social Media
+     facebookController = new TextEditingController();
+     twitterController = new TextEditingController();
+     instagramController = new TextEditingController();
+     linkedinController = new TextEditingController();
+     youtubeController = new TextEditingController();
+     pinterestController = new TextEditingController();
+
+  }
+
   loadData() async {
     dynamic resp = await Api().getCategoriesForListing();
     dynamic feature_resp = await Api().getFeatureForListing();
@@ -100,7 +152,7 @@ class ListItemProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  reset() {}
+
 
   void generateFeatureItems() {
     feature_items = featureModel.data
@@ -246,7 +298,7 @@ class ListItemProvider extends ChangeNotifier {
         cupertinoOptions: CupertinoOptions(takePhotoIcon: "chat"),
         materialOptions: MaterialOptions(
           actionBarColor: "#e6634d",
-          actionBarTitle: "Select Secondary Images",
+          actionBarTitle: "Gallery Images",
           allViewTitle: "All Photos",
           useDetailsView: false,
           selectCircleStrokeColor: "#e6634d",
@@ -268,50 +320,16 @@ class ListItemProvider extends ChangeNotifier {
     return file;
   }
 
-  getDate(){
-    DateTime date=new DateTime.now();
+  getDate() {
+    DateTime date = new DateTime.now();
     final DateTime now = DateTime.now();
-    final DateFormat formatter = DateFormat('dd-MM-yyyy');//"20-08-2020"
+    final DateFormat formatter = DateFormat('dd-MM-yyyy'); //"20-08-2020"
     final String formatted = formatter.format(now);
-   return formatted;
-
+    return formatted;
   }
 
   void submit() async {
     print("submission done");
-// primary images
-    if(profileImage.path.split('/').last==null){
-      showtoast(skey, "No Image selected");
-      return;
-    }
-
-
-
-    String fileName = profileImage.path.split('/').last;
-
-    MultipartFile primary_image =
-        await MultipartFile.fromFile(profileImage.path, filename: fileName);
-
-    /* secondary images*/
-
-    List<Asset> images = secondary_imges;
-    List<MultipartFile> multipartImageList = new List<MultipartFile>();
-    if (null != images) {
-      for (Asset asset in images) {
-        /*    ByteData byteData = await asset.getByteData();
-        List<int> imageData =  byteData.buffer.asUint8List();
-        MultipartFile multipartFile =  new MultipartFile.fromBytes(
-          imageData,
-          filename: 'load_image.jpg',
-        contentType: MediaType("image", "jpg"),
-        );
-        multipartImageList.add(multipartFile);*/
-        File f = await getImageFileFromAssets(asset);
-        MultipartFile sec_img =
-            await MultipartFile.fromFile(f.path, filename: fileName);
-        multipartImageList.add(sec_img);
-      }
-    }
 
     print("token is ${Application.user.token}");
 
@@ -359,12 +377,72 @@ class ListItemProvider extends ChangeNotifier {
       }
 
       // location data
-      final locationProvider=Provider.of<LocationProvider>(context,listen: false);
-      if(locationProvider.markers==null || locationProvider.markers.isEmpty){
+      final locationProvider =
+          Provider.of<LocationProvider>(context, listen: false);
+      if (locationProvider.markers == null ||
+          locationProvider.markers.isEmpty) {
         showtoast(skey, "Location not detected");
-      return;
+        return;
       }
 
+      if (Validation().isEmailValid(emailController.text) == false) {
+        showtoast(skey, "Email format incorrect");
+        return;
+      }
+
+      if (Validation().isPhoneNumberValid(phoneController.text) == false) {
+        showtoast(skey, "Phone Number format incorrect");
+        return;
+      }
+
+      if (Validation().isNumber(pincodeController.text) == false) {
+        showtoast(skey, "Pincode must be Numerical");
+        return;
+      }
+
+      // primary images
+      if (profileImage.path.split('/').last == null) {
+        showtoast(skey, "No Image selected");
+        return;
+      }
+
+      String fileName = profileImage.path.split('/').last;
+
+      MultipartFile primary_image =
+          await MultipartFile.fromFile(profileImage.path, filename: fileName);
+
+      /* secondary images*/
+
+      List<Asset> images = secondary_imges;
+      List<MultipartFile> multipartImageList = new List<MultipartFile>();
+      if (null != images) {
+        for (Asset asset in images) {
+          /*    ByteData byteData = await asset.getByteData();
+        List<int> imageData =  byteData.buffer.asUint8List();
+        MultipartFile multipartFile =  new MultipartFile.fromBytes(
+          imageData,
+          filename: 'load_image.jpg',
+        contentType: MediaType("image", "jpg"),
+        );
+        multipartImageList.add(multipartFile);*/
+          File f = await getImageFileFromAssets(asset);
+          MultipartFile sec_img =
+              await MultipartFile.fromFile(f.path, filename: fileName);
+          multipartImageList.add(sec_img);
+        }
+      }
+
+      await AwesomeDialog(
+        context: context,
+        animType: AnimType.SCALE,
+        dialogType: DialogType.INFO,
+        customHeader: Padding(
+            padding: EdgeInsets.all(25),
+            child: SvgPicture.asset("assets/images/hourglass.svg")),
+        title: 'Data is Uploading',
+        desc: 'Please be patent not Press back',
+      )
+        ..show();
 
       // tagsSelected
       Dio dio = await Api().getApiClient("${Application.user.token}");
@@ -396,15 +474,67 @@ class ListItemProvider extends ChangeNotifier {
         "tags": jsonEncode(tags_list),
         "features": jsonEncode(feature_list),
         "category": choosen_category.id,
-       "files": multipartImageList,
+        "files": multipartImageList,
         //  "image":primary_image,
         "image": primary_image,
       };
 
       var formdata = FormData.fromMap(map);
+      Response resp;
+      try {
+         resp = await dio.post("/add_listing", data: formdata);
+      } on SocketException catch (e) {
+        AwesomeDialog(
+            context: context,
+            animType: AnimType.LEFTSLIDE,
+            headerAnimationLoop: false,
+            dialogType: DialogType.SUCCES,
+            title: 'Internet Error',
+            desc: 'No Internet',
+            btnOkOnPress: () {
+              Navigator.pop(context);
+              Navigator.pop(context);
+            },
+            btnOkIcon: Icons.check_circle,
+            onDissmissCallback: () {
+              debugPrint('Dialog Dissmiss from callback');
+            })
+          ..show();
 
-      Response resp = await dio.post("/add_listing", data: formdata);
+      }
 
+      if (resp.statusCode == 200) {
+        AwesomeDialog(
+            context: context,
+            animType: AnimType.LEFTSLIDE,
+            headerAnimationLoop: false,
+            dialogType: DialogType.SUCCES,
+            title: 'Success',
+            desc: 'Your Data is Uploaded Successfully',
+            btnOkOnPress: () {
+              Navigator.pop(context);
+              Navigator.pop(context);
+            },
+            btnOkIcon: Icons.check_circle,
+            onDissmissCallback: () {
+              debugPrint('Dialog Dissmiss from callback');
+            })
+          ..show();
+      } else {
+        AwesomeDialog(
+            context: context,
+            dialogType: DialogType.ERROR,
+            animType: AnimType.RIGHSLIDE,
+            headerAnimationLoop: false,
+            title: 'Error',
+            desc: 'There is error during upload please try sometime later',
+            btnOkOnPress: () {
+              Navigator.pop(context);
+            },
+            btnOkIcon: Icons.cancel,
+            btnOkColor: Colors.red)
+          ..show();
+      }
     }
   }
 }

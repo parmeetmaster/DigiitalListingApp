@@ -13,9 +13,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class ProductDetail extends StatefulWidget {
   dynamic id;
-  ProductDetail(dynamic id) {
-this.id=id;
-  }
+  bool editmode;
+  ProductDetail(this. id, { this.editmode});
 
 
 
@@ -552,6 +551,8 @@ class _ProductDetailState extends State<ProductDetail> {
                       ),
                     );
                   }
+
+
                   info = Padding(
                     padding: EdgeInsets.only(left: 20, right: 20),
                     child: Column(
@@ -577,7 +578,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               icon: Icon(
                                 _favorite
                                     ? Icons.favorite
-                                    : Icons.favorite_border,
+                                    : Icons.favorite_border_rounded,
                                 color: Theme.of(context).primaryColorLight,
                               ),
                               onPressed: () {
@@ -1160,6 +1161,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                 child: AppUserInfo(
                                   user: author,
                                   type: AppUserType.basic,
+
                                 ),
                               ),
                               info,

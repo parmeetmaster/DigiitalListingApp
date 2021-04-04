@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:listar_flutter_pro/providers/lisitItemProvider.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
@@ -29,6 +30,7 @@ class _StepperDemoState extends State<StepperDemo> {
   @override
   void initState() {
     final provider = Provider.of<ListItemProvider>(context, listen: false);
+   provider.reset();
     provider.currunt_state = appstate.defaultstate;
     provider.skey = new GlobalKey<ScaffoldState>();
     provider.loadData();
@@ -54,7 +56,6 @@ class _StepperDemoState extends State<StepperDemo> {
                 Expanded(
                   child: Stepper(
                     type: stepperType,
-
                     physics: ScrollPhysics(),
                     currentStep: _currentStep,
                     onStepTapped: (step) => tapped(step),
@@ -78,20 +79,7 @@ class _StepperDemoState extends State<StepperDemo> {
                               controller: value.phoneController,
                               decoration: InputDecoration(labelText: 'Phone'),
                             ),
-                            InkWell(onTap: (){
-                              Navigator.pushNamed(context,LocationScreen.classname);
-                            },
-                              child: AbsorbPointer(
-                                child: TextFormField(
-                                  controller: value.addressController,
-                                  decoration: InputDecoration(labelText: 'Address'),
-                                ),
-                              ),
-                            ),
-                            TextFormField(
-                              controller: value.pincodeController,
-                              decoration: InputDecoration(labelText: 'Pincode'),
-                            ),
+
                             InkWell(
                               onTap: () {
                                 value.showCategoriesDialog();
@@ -270,6 +258,8 @@ class _StepperDemoState extends State<StepperDemo> {
                                 ),
                               ),
                             ),
+
+
                             InkWell(
                               onTap: () {
                                 value.showStateDialog();
@@ -294,11 +284,29 @@ class _StepperDemoState extends State<StepperDemo> {
                                 ),
                               ),
                             ),
+                            InkWell(onTap: (){
+                              Navigator.pushNamed(context,LocationScreen.classname);
+                            },
+                              child: AbsorbPointer(
+                                child: TextFormField(
+                                  controller: value.addressController,
+                                  decoration: InputDecoration(labelText: 'Address'),
+                                ),
+                              ),
+                            ),
+                            TextFormField(
+                              controller: value.pincodeController,
+                              decoration: InputDecoration(labelText: 'Pincode'),
+                            ),
+
                             TextFormField(
                               controller: value.websiteController,
                               decoration:
                                   InputDecoration(labelText: 'Website '),
                             ),
+
+
+
                           ],
                         ),
                         isActive: _currentStep >= 0,
@@ -358,10 +366,10 @@ class _StepperDemoState extends State<StepperDemo> {
             ),
           );
       }),
-      floatingActionButton: FloatingActionButton(
+   /*   floatingActionButton: FloatingActionButton(
         child: Icon(Icons.list),
         onPressed: switchStepsType,
-      ),
+      ),*/
     );
   }
 
@@ -382,7 +390,27 @@ class _StepperDemoState extends State<StepperDemo> {
  final provider= Provider.of<ListItemProvider>(context,listen:false);
     _currentStep < 2 ? setState(() => _currentStep += 1) : null;
  if(submit_flag>2){
-   provider.submit();
+   AwesomeDialog(
+     context: context,
+     keyboardAware: true,
+     dismissOnBackKeyPress: false,
+     dialogType: DialogType.WARNING,
+
+     animType: AnimType.BOTTOMSLIDE,
+     btnCancelText: "Cancel",
+     btnOkText: "Submit",
+     title: 'Do you like to Submit',
+     padding: const EdgeInsets.all(16.0),
+     desc:
+     'Proceed',
+     btnCancelOnPress: () {},
+     btnOkOnPress: () {
+       provider.submit();
+     },
+   ).show();
+
+
+
 
  }
 

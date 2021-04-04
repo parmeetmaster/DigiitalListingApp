@@ -41,8 +41,6 @@ class _LocationScreenState extends State<LocationScreen> {
       target: LatLng(LocationUtils.position.latitude, LocationUtils.position.longitude),
       zoom: 14.4746,
     );
-
-
   }
 
   @override

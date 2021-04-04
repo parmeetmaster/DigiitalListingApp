@@ -375,7 +375,7 @@ class _HomeState extends State<Home> {
           },
           child: Container(
             height: 90,
-            width: MediaQuery.of(context).size.width-MediaQuery.of(context).size.width*0.1,
+            width: MediaQuery.of(context).size.width-MediaQuery.of(context).size.width*0.14,
             child: Image.network(
                 ads.first.image,fit:BoxFit.fill,
 

@@ -9,11 +9,14 @@ class AppUserInfo extends StatelessWidget {
   final UserModel user;
   final VoidCallback onPressed;
   final AppUserType type;
-
+  final bool editmode;
+  final VoidCallback deletePress;
   AppUserInfo({
     Key key,
+    this.deletePress,
     this.user,
     this.onPressed,
+    this.editmode,
     this.type = AppUserType.basic,
   }) : super(key: key);
 
@@ -292,7 +295,24 @@ class AppUserInfo extends StatelessWidget {
                     )
                   ],
                 ),
-              )
+              ),
+              Spacer(),
+              ((){
+                if(editmode==true){
+                return  IconButton(
+                    icon: Icon(
+                      Icons.restore_from_trash,
+                      color: Theme.of(context).primaryColorLight,
+                    ),
+                    onPressed: () {
+                      deletePress();
+                    },
+                  );
+                }else{
+                  return Container();
+                }
+
+              }())
             ],
           ),
         );
