@@ -2,12 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:listar_flutter_pro/app.dart';
+import 'package:listar_flutter_pro/providers/edit_lisitItemProvider.dart';
 import 'package:listar_flutter_pro/providers/edit_list_provider.dart';
 
-import 'package:listar_flutter_pro/providers/lisitItemProvider.dart';
 import 'package:listar_flutter_pro/providers/location_provider.dart';
 import 'package:listar_flutter_pro/utils/utils.dart';
 import 'package:provider/provider.dart';
+
+import 'providers/add_lisitItemProvider.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -34,9 +36,11 @@ void main() {
   runApp(
       MultiProvider(
           providers: [
-            ChangeNotifierProvider(create: (ctx) => ListItemProvider()),
+            ChangeNotifierProvider(create: (ctx) => AddListItemProvider()),
             ChangeNotifierProvider(create: (ctx) => LocationProvider()),
             ChangeNotifierProvider(create: (ctx) => EditListProvider()),
+            ChangeNotifierProvider(create: (ctx) => EditListItemFormProvider()),
+
           ],
         child: App()
       )

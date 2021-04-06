@@ -1,6 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:listar_flutter_pro/providers/lisitItemProvider.dart';
+import 'package:listar_flutter_pro/providers/add_lisitItemProvider.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:select_dialog/select_dialog.dart';
@@ -29,7 +29,7 @@ class _StepperDemoState extends State<StepperDemo> {
 
   @override
   void initState() {
-    final provider = Provider.of<ListItemProvider>(context, listen: false);
+    final provider = Provider.of<AddListItemProvider>(context, listen: false);
    provider.reset();
     provider.currunt_state = appstate.defaultstate;
     provider.skey = new GlobalKey<ScaffoldState>();
@@ -38,7 +38,7 @@ class _StepperDemoState extends State<StepperDemo> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ListItemProvider>(context, listen: false);
+    final provider = Provider.of<AddListItemProvider>(context, listen: false);
     provider.context = context;
 
     return Scaffold(
@@ -48,7 +48,7 @@ class _StepperDemoState extends State<StepperDemo> {
         title: Text('Add List Item'),
         centerTitle: true,
       ),
-      body: Consumer<ListItemProvider>(builder: (context, value, child) {
+      body: Consumer<AddListItemProvider>(builder: (context, value, child) {
         if (value.currunt_state == appstate.laoding_complete)
           return Container(
             child: Column(
@@ -387,7 +387,7 @@ class _StepperDemoState extends State<StepperDemo> {
 
   continued() {
     submit_flag++;
- final provider= Provider.of<ListItemProvider>(context,listen:false);
+ final provider= Provider.of<AddListItemProvider>(context,listen:false);
     _currentStep < 2 ? setState(() => _currentStep += 1) : null;
  if(submit_flag>2){
    AwesomeDialog(

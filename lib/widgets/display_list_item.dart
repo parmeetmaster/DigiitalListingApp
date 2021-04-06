@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:listar_flutter_pro/configs/routes.dart';
 import 'package:listar_flutter_pro/configs/theme.dart';
 import 'package:listar_flutter_pro/models/carrage.dart';
+import 'package:listar_flutter_pro/screens/edit-listing/edit_list_item_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 import 'app_star_rating.dart';
@@ -317,20 +318,25 @@ class _DisplayListItemState extends State<DisplayListItem> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Expanded(
-                        child: Container(
-                          height:35,
-                          decoration:BoxDecoration(
-                          color: Colors.green[700],
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5))
+                        child: InkWell(
+                          onTap:(){
+                            Navigator.pushNamed(context, EditListItemScreen.classname,arguments: widget.carrage);
+                          },
+                          child: Container(
+                            height:35,
+                            decoration:BoxDecoration(
+                            color: Colors.green[700],
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5))
 
-                          ),
-                          child: Row(
-                            children: [
-                              SizedBox(width: 9,),
-                              FaIcon(FontAwesomeIcons.pen,size: 16,color: Colors.white,),
-                              SizedBox(width: 8,),
-                              Text("Edit",style: TextStyle( color: Colors.white,),),
-                            ],
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(width: 9,),
+                                FaIcon(FontAwesomeIcons.pen,size: 16,color: Colors.white,),
+                                SizedBox(width: 8,),
+                                Text("Edit",style: TextStyle( color: Colors.white,),),
+                              ],
+                            ),
                           ),
                         ),
                       ),

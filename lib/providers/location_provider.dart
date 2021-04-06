@@ -6,9 +6,10 @@ import 'package:flutter_places/flutter_places.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:listar_flutter_pro/models/google_place_response.dart';
+import 'package:listar_flutter_pro/providers/add_lisitItemProvider.dart';
 import 'package:provider/provider.dart';
 
-import 'lisitItemProvider.dart';
+
 
 class LocationProvider extends ChangeNotifier {
   // Completer<GoogleMapController> map_controller = Completer();
@@ -31,6 +32,20 @@ class LocationProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void addMarkerWithoutRefresh(LatLng argument) {
+    markers = {};
+
+    markers.add(Marker(
+      markerId: MarkerId(argument.toString()),
+      position: argument,
+      infoWindow: InfoWindow(
+        title: 'Location Selected',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+    ));
+  }
+
+
   Future<void> setMarkerUsingPlaceDetails(Place place) async {
     // Move camera to location
     final curruntCameraPosition = await CameraPosition(
@@ -45,7 +60,7 @@ class LocationProvider extends ChangeNotifier {
   }
 
   void getLocationName() async {
-    final listing_provider=Provider.of<ListItemProvider>(context,listen: false);
+    final listing_provider=Provider.of<AddListItemProvider>(context,listen: false);
     Dio dio = new Dio();
     if (markers == null || markers.isEmpty) return;
 

@@ -304,7 +304,7 @@ class Full {
     this.url,
   });
 
-  String url;
+  dynamic url;
 
   factory Full.fromRawJson(String str) => Full.fromJson(json.decode(str));
 

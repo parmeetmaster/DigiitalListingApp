@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:listar_flutter_pro/screens/edit-listing/display_listing.dart';
+import 'package:listar_flutter_pro/screens/edit-listing/edit_list_item_screen.dart';
 import 'package:listar_flutter_pro/screens/edit-listing/edit_product_detail.dart';
 import 'package:listar_flutter_pro/screens/error_screen/no_locationError.dart';
 import 'package:listar_flutter_pro/screens/profile/add_list_item.dart';
@@ -40,11 +41,20 @@ class Routes {
   static const String locationscreen = LocationScreen.classname;
   static const String locationerror = LocationError.classname;
   static const String displaylisting = DisplayListing.classname;
+  /*Edit list item*/
   static const String editProductDetailScreen = EditProductDetail.classname;
+  static const String editListItemScreen = EditListItemScreen.classname;
 
 
   Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+
+      case editListItemScreen:
+        return MaterialPageRoute(
+          builder: (context) {
+            return EditListItemScreen(carrage:settings.arguments);
+          },
+        );
 
       case editProductDetailScreen:
         return MaterialPageRoute(
