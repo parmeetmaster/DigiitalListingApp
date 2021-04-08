@@ -32,6 +32,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:http_parser/http_parser.dart';
+import 'package:listar_flutter_pro/models/edit_listing/product_item_model.dart';
 
 import 'location_provider.dart';
 
@@ -40,11 +41,19 @@ class EditListItemFormProvider extends ChangeNotifier {
   CategoryDataItem choosen_category;
   FeatureModel featureModel;
   CommonListingModel tagsModel;
+  double container_padding_feature;
+  double container_padding_tag;
+
   List<dynamic> featureSelected = [];
   List<dynamic> tagsSelected = [];
-  dynamic currunt_state = appstate.defaultstate;
+  String selectedFeatureText="";
+  String selectedTagsText="";
   List feature_items;
   List tags_items;
+
+
+  dynamic currunt_state = appstate.defaultstate;
+
   CommonListingModel countries;
   CommonListingModel state;
   CommonListingModel cities;
@@ -60,6 +69,7 @@ class EditListItemFormProvider extends ChangeNotifier {
   final picker = ImagePicker();
   File profileImage;
   Carrage carrage;
+  final GlobalKey<FormFieldState> feature_key=new GlobalKey<FormFieldState>();
 
   //information
   TextEditingController titleController = new TextEditingController();
@@ -84,7 +94,20 @@ class EditListItemFormProvider extends ChangeNotifier {
   TextEditingController youtubeController = new TextEditingController();
   TextEditingController pinterestController = new TextEditingController();
 
+
+
   reset() {
+     container_padding_feature=10;
+     container_padding_tag=10;
+   featureSelected = [];
+  tagsSelected = [];
+      selectedFeatureText="";
+      selectedTagsText="";
+      feature_items=null;
+      tags_items=null;
+
+
+
     catagories = null;
     choosen_category = null;
     featureModel = null;
@@ -323,6 +346,8 @@ class EditListItemFormProvider extends ChangeNotifier {
   }
 
 // set data is here
+
+  GetProductDetail productDetail;
   void setData(Carrage carrage) async {
     this.carrage = carrage;
     DataListModel dataListModel = this.carrage.dataListModel;
@@ -330,14 +355,14 @@ class EditListItemFormProvider extends ChangeNotifier {
     Response resp = await dio
         .get("/get_product_details", queryParameters: {"id": dataListModel.id});
 
-    GetProductDetail productDetail = GetProductDetail.fromJson(resp.data);
+     productDetail = GetProductDetail.fromJson(resp.data);
 
     titleController.text = productDetail.data.postTitle;
 
     emailController.text = productDetail.data.email;
     phoneController.text = productDetail.data.phone;
     addressController.text = productDetail.data.address;
-    pincodeController.text = "110018"; // todo api response is check and add
+    pincodeController.text = productDetail.data.zipCode; // todo api response is check and add
     exceptController.text = productDetail.data.postExcerpt;
     active_country=DataItems(id:int.parse(productDetail.data.country),name:productDetail.data.country);
     active_state=DataItems(id:int.parse(productDetail.data.state),name:productDetail.data.stateName);
@@ -349,6 +374,13 @@ class EditListItemFormProvider extends ChangeNotifier {
     await getCitiesUsingAPi(DataItems(
         id: active_state.id,
         name: active_state.name));
+
+    // add features in data
+   // DataItems
+    setFeature();
+setTags();
+
+
 
     // address section
     categoryController.text = productDetail.data.category.name;
@@ -480,7 +512,7 @@ class EditListItemFormProvider extends ChangeNotifier {
         customHeader: Padding(
             padding: EdgeInsets.all(25),
             child: SvgPicture.asset("assets/images/hourglass.svg")),
-        title: 'Data is Uploading',
+        title: 'Data is Updating',
         desc: 'Please be patent not Press back',
       )
         ..show();
@@ -591,6 +623,30 @@ class EditListItemFormProvider extends ChangeNotifier {
       }
     }
   }
+
+  void setFeature() async {
+    for(CategoryClass item in productDetail.data.features) {
+      featureSelected.add(DataFeature(id:item.termId,name: item.name));
+      selectedFeatureText+="${item.name}, ";
+    }
+  }
+
+  void setTags() async {
+    for(Tag item in productDetail.data.tags) {
+      tagsSelected.add(DataFeature(id:item.termId,name: item.name));
+      selectedTagsText+="${item.name}, ";
+    }
+  }
+
+
+
+/*  void setTags() async {
+
+    for(CategoryClass item in productDetail.data.t) {
+      featureSelected.add(DataFeature(id:item.termId,name: item.name));
+      selectedFeatureText+="${item.name},";
+    }
+  }*/
 
 /*
   10.Update listing

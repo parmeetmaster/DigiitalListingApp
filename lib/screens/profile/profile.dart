@@ -70,7 +70,7 @@ class _ProfileState extends State<Profile> {
                               //Add list item
                               AppListTitle(
                                 title: Translate.of(context).translate(
-                                  'Update list Item',
+                                  'My Listings',
                                 ),
                                 trailing: RotatedBox(
                                   quarterTurns: UtilLanguage.isRTL() ? 2 : 0,

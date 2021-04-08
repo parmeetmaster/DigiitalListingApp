@@ -11,7 +11,6 @@ import 'package:listar_flutter_pro/configs/constants.dart';
 import '../location/location_picker.dart';
 
 class EditStepper extends StatefulWidget {
-
   Carrage carrage;
 
   EditStepper({this.carrage});
@@ -19,7 +18,6 @@ class EditStepper extends StatefulWidget {
   @override
   _EditStepperState createState() => _EditStepperState();
 }
-
 
 class _EditStepperState extends State<EditStepper> {
   int _currentStep = 0;
@@ -29,27 +27,31 @@ class _EditStepperState extends State<EditStepper> {
   void initState() {
     print("data loaded${widget.carrage.dataListModel.id}");
 
-    final provider = Provider.of<EditListItemFormProvider>(context, listen: false);
-   provider.reset();
+    final provider =
+        Provider.of<EditListItemFormProvider>(context, listen: false);
+    provider.reset();
     provider.currunt_state = appstate.defaultstate;
     provider.skey = new GlobalKey<ScaffoldState>();
     provider.loadData();
     provider.setData(widget.carrage);
   }
 
+
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<EditListItemFormProvider>(context, listen: false);
+    final provider =
+        Provider.of<EditListItemFormProvider>(context, listen: false);
     provider.context = context;
 
     return Scaffold(
       key: provider.skey,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-          title: Text('Edit List Item'),
+        title: Text('Edit List Item'),
         centerTitle: true,
       ),
-      body: Consumer<EditListItemFormProvider>(builder: (context, value, child) {
+      body:
+          Consumer<EditListItemFormProvider>(builder: (context, value, child) {
         if (value.currunt_state == appstate.laoding_complete)
           return Container(
             child: Column(
@@ -64,7 +66,10 @@ class _EditStepperState extends State<EditStepper> {
                     onStepCancel: cancel,
                     steps: <Step>[
                       Step(
-                        title: new Text('Informtion',style: TextStyle(fontSize: 12),),
+                        title: new Text(
+                          'Informtion',
+                          style: TextStyle(fontSize: 12),
+                        ),
                         content: Column(
                           children: <Widget>[
                             TextFormField(
@@ -80,7 +85,6 @@ class _EditStepperState extends State<EditStepper> {
                               controller: value.phoneController,
                               decoration: InputDecoration(labelText: 'Phone'),
                             ),
-
                             InkWell(
                               onTap: () {
                                 value.showCategoriesDialog();
@@ -108,6 +112,8 @@ class _EditStepperState extends State<EditStepper> {
                                 children: <Widget>[
                                   MultiSelectBottomSheetField(
                                     initialChildSize: 0.4,
+                                    initialValue: value.featureSelected,
+                                    key: value.feature_key,
                                     listType: MultiSelectListType.CHIP,
                                     searchable: true,
                                     buttonText: Text("Select Feature"),
@@ -116,6 +122,11 @@ class _EditStepperState extends State<EditStepper> {
                                     onConfirm: (values) {
                                       value.featureSelected = values;
                                       value.showSelected();
+
+                                      setState(() {
+                                        value.selectedFeatureText="";
+                                        value.container_padding_feature=0;
+                                      });
                                     },
                                     chipDisplay: MultiSelectChipDisplay(
                                       onTap: (value) {
@@ -125,17 +136,23 @@ class _EditStepperState extends State<EditStepper> {
                                       },
                                     ),
                                   ),
-                                  value.featureSelected == null ||
-                                          value.featureSelected.isEmpty
-                                      ? Container(
-                                          padding: EdgeInsets.all(10),
+                                  (() {
+                                    if (value.featureSelected != null ||
+                                        value.featureSelected.isNotEmpty) {
+                                     return Container(
+                                          padding: EdgeInsets.all(value.container_padding_feature),
                                           alignment: Alignment.centerLeft,
                                           child: Text(
-                                            "None selected",
+                                            "${value.selectedFeatureText}",
                                             style: TextStyle(
                                                 color: Colors.black54),
-                                          ))
-                                      : Container(),
+                                          ));
+                                    }
+                                    else{
+                                      return Container();
+                                    }
+
+                                  }())
                                 ],
                               ),
                             ),
@@ -157,31 +174,49 @@ class _EditStepperState extends State<EditStepper> {
                                     listType: MultiSelectListType.CHIP,
                                     searchable: true,
                                     buttonText: Text("Select Tags"),
-                                    title: Text("Select multiple Tags"),
+                                    title: Text("Select multiple"),
                                     items: value.tags_items,
                                     onConfirm: (values) {
+                                      value.container_padding_tag=0;
                                       value.tagsSelected = values;
-                                      value.showSelected();
+
+
+                                        value.selectedTagsText="";
+
+                                          value.notifyListeners();
+
+                                    },
+                                    onSelectionChanged: (values){
+                                      value.selectedTagsText="";
+                                      value.container_padding_tag=0;
+                                      value.notifyListeners();
+
                                     },
                                     chipDisplay: MultiSelectChipDisplay(
                                       onTap: (value) {
                                         setState(() {
-                                          value.tagsSelected.remove(value);
+                                          value.tagsSeleted.remove(value);
                                         });
                                       },
                                     ),
                                   ),
-                                  value.tagsSelected == null ||
-                                          value.tagsSelected.isEmpty
-                                      ? Container(
-                                          padding: EdgeInsets.all(10),
+                                  (() {
+                                    if (value.tagsSelected != null ||
+                                        value.tagsSelected.isNotEmpty) {
+                                      return Container(
+                                          padding: EdgeInsets.all(value.container_padding_tag),
                                           alignment: Alignment.centerLeft,
                                           child: Text(
-                                            "None selected",
+                                            "${value.selectedTagsText}",
                                             style: TextStyle(
                                                 color: Colors.black54),
-                                          ))
-                                      : Container(),
+                                          ));
+                                    }
+                                    else{
+                                      return Container();
+                                    }
+
+                                  }())
                                 ],
                               ),
                             ),
@@ -204,7 +239,7 @@ class _EditStepperState extends State<EditStepper> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 InkWell(
-                                  onTap: (){
+                                  onTap: () {
                                     value.loadPrimaryImage();
                                   },
                                   child: Column(
@@ -225,7 +260,7 @@ class _EditStepperState extends State<EditStepper> {
                                   thickness: 1,
                                 ),
                                 InkWell(
-                                  onTap: (){
+                                  onTap: () {
                                     value.loadSecondaryImages();
                                   },
                                   child: Column(
@@ -259,8 +294,6 @@ class _EditStepperState extends State<EditStepper> {
                                 ),
                               ),
                             ),
-
-
                             InkWell(
                               onTap: () {
                                 value.showStateDialog();
@@ -285,13 +318,16 @@ class _EditStepperState extends State<EditStepper> {
                                 ),
                               ),
                             ),
-                            InkWell(onTap: (){
-                              Navigator.pushNamed(context,LocationScreen.classname);
-                            },
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, LocationScreen.classname);
+                              },
                               child: AbsorbPointer(
                                 child: TextFormField(
                                   controller: value.addressController,
-                                  decoration: InputDecoration(labelText: 'Address'),
+                                  decoration:
+                                      InputDecoration(labelText: 'Address'),
                                 ),
                               ),
                             ),
@@ -299,15 +335,11 @@ class _EditStepperState extends State<EditStepper> {
                               controller: value.pincodeController,
                               decoration: InputDecoration(labelText: 'Pincode'),
                             ),
-
                             TextFormField(
                               controller: value.websiteController,
                               decoration:
                                   InputDecoration(labelText: 'Website '),
                             ),
-
-
-
                           ],
                         ),
                         isActive: _currentStep >= 0,
@@ -367,7 +399,7 @@ class _EditStepperState extends State<EditStepper> {
             ),
           );
       }),
-   /*   floatingActionButton: FloatingActionButton(
+      /*   floatingActionButton: FloatingActionButton(
         child: Icon(Icons.list),
         onPressed: switchStepsType,
       ),*/
@@ -379,44 +411,37 @@ class _EditStepperState extends State<EditStepper> {
         ? stepperType = StepperType.horizontal
         : stepperType = StepperType.vertical);
   }
-  int submit_flag=0;
+
+  int submit_flag = 0;
+
   tapped(int step) {
-    submit_flag=step;
+    submit_flag = step;
     setState(() => _currentStep = step);
   }
 
-
   continued() {
     submit_flag++;
- final provider= Provider.of<EditListItemFormProvider>(context,listen:false);
+    final provider =
+        Provider.of<EditListItemFormProvider>(context, listen: false);
     _currentStep < 2 ? setState(() => _currentStep += 1) : null;
- if(submit_flag>2){
-   AwesomeDialog(
-     context: context,
-     keyboardAware: true,
-     dismissOnBackKeyPress: false,
-     dialogType: DialogType.WARNING,
-
-     animType: AnimType.BOTTOMSLIDE,
-     btnCancelText: "Cancel",
-     btnOkText: "Submit",
-     title: 'Do you like to Submit',
-     padding: const EdgeInsets.all(16.0),
-     desc:
-     'Proceed',
-     btnCancelOnPress: () {},
-     btnOkOnPress: () {
-       provider.submit();
-     },
-   ).show();
-
-
-
-
- }
-
-
-
+    if (submit_flag > 2) {
+      AwesomeDialog(
+        context: context,
+        keyboardAware: true,
+        dismissOnBackKeyPress: false,
+        dialogType: DialogType.WARNING,
+        animType: AnimType.BOTTOMSLIDE,
+        btnCancelText: "Cancel",
+        btnOkText: "Submit",
+        title: 'Do you like to Submit',
+        padding: const EdgeInsets.all(16.0),
+        desc: 'Proceed',
+        btnCancelOnPress: () {},
+        btnOkOnPress: () {
+          provider.submit();
+        },
+      ).show();
+    }
   }
 
   cancel() {

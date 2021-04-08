@@ -444,14 +444,19 @@ class AddListItemProvider extends ChangeNotifier {
       )
         ..show();
 
-      // tagsSelected
+
+
       Dio dio = await Api().getApiClient("${Application.user.token}");
       var map = {
         "name": titleController.text,
-        "country": countryController.text,
+      /*  "country": countryController.text,
         "state": stateController.text,
         "state": stateController.text,
-        "location": cityController.text,
+        "location": cityController.text,*/
+          "country": "${active_country.id}",
+        "state": "${active_state.id}",
+        "location": "${active_city.id}",
+
         "address": addressController.text,
         "postalcode": pincodeController.text,
         "phone": phoneController.text,

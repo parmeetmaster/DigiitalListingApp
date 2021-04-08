@@ -1,29 +1,34 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:listar_flutter_pro/api/api.dart';
 import 'package:listar_flutter_pro/blocs/bloc.dart';
 import 'package:listar_flutter_pro/configs/config.dart';
 import 'package:listar_flutter_pro/models/carrage.dart';
 import 'package:listar_flutter_pro/models/model.dart';
 import 'package:listar_flutter_pro/models/model_ads.dart';
+import 'package:listar_flutter_pro/providers/edit_list_provider.dart';
+import 'package:listar_flutter_pro/screens/edit-listing/edit_list_item_screen.dart';
 import 'package:listar_flutter_pro/utils/utils.dart';
 import 'package:listar_flutter_pro/widgets/Ads.dart';
 import 'package:listar_flutter_pro/widgets/app_user_info_edit.dart';
 import 'package:listar_flutter_pro/widgets/widget.dart';
+import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EditProductDetail extends StatefulWidget {
-   static const classname="/EditProductDetail";
-
+  static const classname = "/EditProductDetail";
 
   dynamic id;
-  EditProductDetail(Carrage carrage){
-    this.id=carrage.dataListModel.id;
+  Carrage carrage;
+
+  EditProductDetail(Carrage carrage) {
+    this.id = carrage.dataListModel.id;
+    this.carrage = carrage;
   }
-
-
 
   @override
   _EditProductDetailState createState() {
@@ -559,7 +564,6 @@ class _EditProductDetailState extends State<EditProductDetail> {
                     );
                   }
 
-
                   info = Padding(
                     padding: EdgeInsets.only(left: 20, right: 20),
                     child: Column(
@@ -582,9 +586,15 @@ class _EditProductDetailState extends State<EditProductDetail> {
                               ),
                             ),
                             IconButton(
-                              icon: FaIcon(FontAwesomeIcons.pen,size: 16,color: Theme.of(context).primaryColorLight,),
+                              icon: FaIcon(
+                                FontAwesomeIcons.pen,
+                                size: 16,
+                                color: Theme.of(context).primaryColorLight,
+                              ),
                               onPressed: () {
-                               //todo add pen click
+                                Navigator.pushNamed(
+                                    context, EditListItemScreen.classname,
+                                    arguments: widget.carrage);
                               },
                             )
                           ],
@@ -1064,12 +1074,8 @@ class _EditProductDetailState extends State<EditProductDetail> {
                       ],
                     ),
                   );
-                  if (state.product.lastest.isNotEmpty) {
-
-                  }
-                  if (state.product.related.isNotEmpty) {
-
-                  }
+                  if (state.product.lastest.isNotEmpty) {}
+                  if (state.product.related.isNotEmpty) {}
                 }
 
                 return CustomScrollView(
@@ -1093,11 +1099,18 @@ class _EditProductDetailState extends State<EditProductDetail> {
                               Padding(
                                 padding: EdgeInsets.only(left: 20, right: 20),
                                 child: AppUserInfoEdit(
-                                  user: author,
-                                    onPressed:(){
-                                    //todo bin action
-                                    }
-                                ),
+                                    user: author,
+                                    onPressed: () async {
+                                      final provider =
+                                          Provider.of<EditListProvider>(context,
+                                              listen: false);
+                                      await provider.deleteItem(
+                                          dataListModel:
+                                              widget.carrage.dataListModel);
+                                      Navigator.pop(context);
+
+                                      //todo bin action
+                                    }),
                               ),
                               info,
                               feature,

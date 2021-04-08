@@ -21,7 +21,9 @@ class DisplayListItem extends StatefulWidget {
   final String address;
 
   final String phone_number;
-   bool active;
+  Function onDeletePress;
+
+  bool active;
 Carrage carrage;
   DisplayListItem(
       {this.imageUrl,
@@ -31,7 +33,10 @@ Carrage carrage;
       this.status,
       this.rate,
       this.address,
-      this.phone_number});
+      this.phone_number,
+        this.onDeletePress
+
+      });
 
   @override
   _DisplayListItemState createState() => _DisplayListItemState();
@@ -341,20 +346,23 @@ class _DisplayListItemState extends State<DisplayListItem> {
                         ),
                       ),
                       Expanded(
-                        child: Container(
-                          height:35,
-                          decoration:BoxDecoration(
-                              color: Colors.red[700],
-                              borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
+                        child: InkWell(
+                          onTap: widget.onDeletePress,
+                          child: Container(
+                            height:35,
+                            decoration:BoxDecoration(
+                                color: Colors.red[700],
+                                borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
 
-                          ),
-                          child: Row(
-                            children: [
-                              SizedBox(width: 9,),
-                              FaIcon(FontAwesomeIcons.trash,size: 16,color: Colors.white,),
-                              SizedBox(width: 8,),
-                              Text("Delete",style: TextStyle( color: Colors.white,),),
-                            ],
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(width: 9,),
+                                FaIcon(FontAwesomeIcons.trash,size: 16,color: Colors.white,),
+                                SizedBox(width: 8,),
+                                Text("Delete",style: TextStyle( color: Colors.white,),),
+                              ],
+                            ),
                           ),
                         ),
                       )                    ],

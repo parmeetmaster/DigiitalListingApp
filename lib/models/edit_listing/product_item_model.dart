@@ -11,7 +11,7 @@ class GetProductDetail {
   });
 
   bool success;
-  ProductData data;
+  Data data;
 
   factory GetProductDetail.fromRawJson(String str) => GetProductDetail.fromJson(json.decode(str));
 
@@ -19,7 +19,7 @@ class GetProductDetail {
 
   factory GetProductDetail.fromJson(Map<String, dynamic> json) => GetProductDetail(
     success: json["success"],
-    data: ProductData.fromJson(json["data"]),
+    data: Data.fromJson(json["data"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -28,8 +28,8 @@ class GetProductDetail {
   };
 }
 
-class ProductData {
-  ProductData({
+class Data {
+  Data({
     this.id,
     this.postAuthor,
     this.postDate,
@@ -58,6 +58,7 @@ class ProductData {
     this.image,
     this.category,
     this.features,
+    this.tags,
     this.ratingAvg,
     this.ratingCount,
     this.ratingMeta,
@@ -115,9 +116,10 @@ class ProductData {
   String commentCount;
   String filter;
   Author author;
-  DataImage image;
-  Category category;
-  List<Category> features;
+  Image image;
+  CategoryClass category;
+  List<CategoryClass> features;
+  List<Tag> tags;
   int ratingAvg;
   int ratingCount;
   Map<String, int> ratingMeta;
@@ -149,11 +151,11 @@ class ProductData {
   List<Lastest> lastest;
   List<Ad> ads;
 
-  factory ProductData.fromRawJson(String str) => ProductData.fromJson(json.decode(str));
+  factory Data.fromRawJson(String str) => Data.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory ProductData.fromJson(Map<String, dynamic> json) => ProductData(
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
     id: json["ID"],
     postAuthor: json["post_author"],
     postDate: json["post_date"],
@@ -179,9 +181,10 @@ class ProductData {
     commentCount: json["comment_count"],
     filter: json["filter"],
     author: Author.fromJson(json["author"]),
-    image: DataImage.fromJson(json["image"]),
-    category: Category.fromJson(json["category"]),
-    features: List<Category>.from(json["features"].map((x) => Category.fromJson(x))),
+    image: Image.fromJson(json["image"]),
+    category: CategoryClass.fromJson(json["category"]),
+    features: List<CategoryClass>.from(json["features"].map((x) => CategoryClass.fromJson(x))),
+    tags: List<Tag>.from(json["tags"].map((x) => Tag.fromJson(x))),
     ratingAvg: json["rating_avg"],
     ratingCount: json["rating_count"],
     ratingMeta: Map.from(json["rating_meta"]).map((k, v) => MapEntry<String, int>(k, v)),
@@ -243,6 +246,7 @@ class ProductData {
     "image": image.toJson(),
     "category": category.toJson(),
     "features": List<dynamic>.from(features.map((x) => x.toJson())),
+    "tags": List<dynamic>.from(tags.map((x) => x.toJson())),
     "rating_avg": ratingAvg,
     "rating_count": ratingCount,
     "rating_meta": Map.from(ratingMeta).map((k, v) => MapEntry<String, dynamic>(k, v)),
@@ -360,8 +364,8 @@ class Author {
   };
 }
 
-class Category {
-  Category({
+class CategoryClass {
+  CategoryClass({
     this.termId,
     this.name,
     this.slug,
@@ -393,11 +397,11 @@ class Category {
   String color;
   String icon;
 
-  factory Category.fromRawJson(String str) => Category.fromJson(json.decode(str));
+  factory CategoryClass.fromRawJson(String str) => CategoryClass.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
+  factory CategoryClass.fromJson(Map<String, dynamic> json) => CategoryClass(
     termId: json["term_id"],
     name: json["name"],
     slug: json["slug"],
@@ -438,16 +442,16 @@ class Gallery {
     this.thumb,
   });
 
-  GalleryFull full;
-  GalleryFull thumb;
+  Full full;
+  Full thumb;
 
   factory Gallery.fromRawJson(String str) => Gallery.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
   factory Gallery.fromJson(Map<String, dynamic> json) => Gallery(
-    full: GalleryFull.fromJson(json["full"]),
-    thumb: GalleryFull.fromJson(json["thumb"]),
+    full: Full.fromJson(json["full"]),
+    thumb: Full.fromJson(json["thumb"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -456,18 +460,18 @@ class Gallery {
   };
 }
 
-class GalleryFull {
-  GalleryFull({
+class Full {
+  Full({
     this.url,
   });
 
-  dynamic url;
+  String url;
 
-  factory GalleryFull.fromRawJson(String str) => GalleryFull.fromJson(json.decode(str));
+  factory Full.fromRawJson(String str) => Full.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory GalleryFull.fromJson(Map<String, dynamic> json) => GalleryFull(
+  factory Full.fromJson(Map<String, dynamic> json) => Full(
     url: json["url"],
   );
 
@@ -476,25 +480,25 @@ class GalleryFull {
   };
 }
 
-class DataImage {
-  DataImage({
+class Image {
+  Image({
     this.full,
     this.medium,
     this.thumb,
   });
 
-  GalleryFull full;
-  GalleryFull medium;
-  GalleryFull thumb;
+  Full full;
+  Full medium;
+  Full thumb;
 
-  factory DataImage.fromRawJson(String str) => DataImage.fromJson(json.decode(str));
+  factory Image.fromRawJson(String str) => Image.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory DataImage.fromJson(Map<String, dynamic> json) => DataImage(
-    full: GalleryFull.fromJson(json["full"]),
-    medium: GalleryFull.fromJson(json["medium"]),
-    thumb: GalleryFull.fromJson(json["thumb"]),
+  factory Image.fromJson(Map<String, dynamic> json) => Image(
+    full: Full.fromJson(json["full"]),
+    medium: Full.fromJson(json["medium"]),
+    thumb: Full.fromJson(json["thumb"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -572,8 +576,8 @@ class Lastest {
   String status;
   String longitude;
   String latitude;
-  LastestImage image;
-  Category category;
+  Image image;
+  CategoryClass category;
   Links links;
   int ratingAvg;
   int ratingCount;
@@ -613,8 +617,8 @@ class Lastest {
     status: json["status"],
     longitude: json["longitude"],
     latitude: json["latitude"],
-    image: LastestImage.fromJson(json["image"]),
-    category: Category.fromJson(json["category"]),
+    image: Image.fromJson(json["image"]),
+    category: CategoryClass.fromJson(json["category"]),
     links: Links.fromJson(json["links"]),
     ratingAvg: json["rating_avg"],
     ratingCount: json["rating_count"],
@@ -657,54 +661,6 @@ class Lastest {
     "rating_avg": ratingAvg,
     "rating_count": ratingCount,
     "wishlist": wishlist,
-  };
-}
-
-class LastestImage {
-  LastestImage({
-    this.full,
-    this.thumb,
-    this.medium,
-  });
-
-  PurpleFull full;
-  PurpleFull thumb;
-  PurpleFull medium;
-
-  factory LastestImage.fromRawJson(String str) => LastestImage.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory LastestImage.fromJson(Map<String, dynamic> json) => LastestImage(
-    full: PurpleFull.fromJson(json["full"]),
-    thumb: PurpleFull.fromJson(json["thumb"]),
-    medium: PurpleFull.fromJson(json["medium"]),
-  );
-
-  Map<String, dynamic> toJson() => {
-    "full": full.toJson(),
-    "thumb": thumb.toJson(),
-    "medium": medium.toJson(),
-  };
-}
-
-class PurpleFull {
-  PurpleFull({
-    this.url,
-  });
-
-  dynamic url;
-
-  factory PurpleFull.fromRawJson(String str) => PurpleFull.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory PurpleFull.fromJson(Map<String, dynamic> json) => PurpleFull(
-    url: json["url"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "url": url,
   };
 }
 
@@ -857,5 +813,29 @@ class SocialNetwork {
     "youtube": youtube,
     "instagram": instagram,
     "flickr": flickr,
+  };
+}
+
+class Tag {
+  Tag({
+    this.termId,
+    this.name,
+  });
+
+  int termId;
+  String name;
+
+  factory Tag.fromRawJson(String str) => Tag.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory Tag.fromJson(Map<String, dynamic> json) => Tag(
+    termId: json["term_id"],
+    name: json["name"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "term_id": termId,
+    "name": name,
   };
 }

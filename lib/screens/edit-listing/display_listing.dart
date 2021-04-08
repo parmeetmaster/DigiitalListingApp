@@ -21,7 +21,9 @@ class _DisplayListingState extends State<DisplayListing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("My Listings"),
+      ),
       body: Consumer<EditListProvider>(builder: (context, value, child) {
         if (value.currunt_state == appstate.loading ||
             value.currunt_state == appstate.defaultstate)
@@ -37,7 +39,7 @@ class _DisplayListingState extends State<DisplayListing> {
             controller: value.refreshController,
             /*  onRefresh: _onRefresh,*/
             onLoading: value.onLoading,
-            onRefresh: (){
+            onRefresh: () {
               value.onRefresh();
             },
             child: ListView.builder(
@@ -46,7 +48,10 @@ class _DisplayListingState extends State<DisplayListing> {
                   padding: EdgeInsets.only(left: 10, right: 10),
                   child: Card(
                     child: DisplayListItem(
-                      carrage: Carrage(dataListModel:value.ls[index] ),
+                      onDeletePress: () {
+                        value.deleteItem(dataListModel: value.ls[index]);
+                      },
+                      carrage: Carrage(dataListModel: value.ls[index]),
                       imageUrl: "${value.ls[index].image.thumb.url}",
                       active: true,
                       address: "${value.ls[index].address}",
