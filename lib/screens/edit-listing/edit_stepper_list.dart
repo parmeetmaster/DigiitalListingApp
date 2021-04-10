@@ -436,7 +436,8 @@ class _EditStepperState extends State<EditStepper> {
         title: 'Do you like to Submit',
         padding: const EdgeInsets.all(16.0),
         desc: 'Proceed',
-        btnCancelOnPress: () {},
+        btnCancelOnPress: () {
+        },
         btnOkOnPress: () {
           provider.submit();
         },
@@ -445,6 +446,7 @@ class _EditStepperState extends State<EditStepper> {
   }
 
   cancel() {
+    Navigator.pop(context); // remove no need
     submit_flag--;
     _currentStep > 0 ? setState(() => _currentStep -= 1) : null;
   }

@@ -7,6 +7,7 @@ import 'package:listar_flutter_pro/screens/error_screen/no_locationError.dart';
 import 'package:listar_flutter_pro/screens/profile/add_list_item.dart';
 import 'file:///D:/Practice%20folder/wetransfer-a1ade2/source/lib/screens/location/location_picker.dart';
 import 'package:listar_flutter_pro/screens/screen.dart';
+import 'package:listar_flutter_pro/screens/search_new/search.dart';
 
 class Routes {
   static const String home = "/home";
@@ -44,10 +45,20 @@ class Routes {
   /*Edit list item*/
   static const String editProductDetailScreen = EditProductDetail.classname;
   static const String editListItemScreen = EditListItemScreen.classname;
+  /*Search */
+  static const String search = Search.classname;
 
 
   Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+
+      case search:
+        return MaterialPageRoute(
+          builder: (context) {
+            return Search();
+          },
+        );
+
 
       case editListItemScreen:
         return MaterialPageRoute(

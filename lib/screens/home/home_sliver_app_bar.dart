@@ -42,7 +42,7 @@ class AppBarHomeSliver extends SliverPersistentHeaderDelegate {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.searchHistory);
+                    Navigator.pushNamed(context, Routes.search); // update of search to new screen created on provider
                   },
                   child: Container(
                     decoration: BoxDecoration(

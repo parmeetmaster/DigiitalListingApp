@@ -6,6 +6,7 @@ import 'package:listar_flutter_pro/providers/edit_lisitItemProvider.dart';
 import 'package:listar_flutter_pro/providers/edit_list_provider.dart';
 
 import 'package:listar_flutter_pro/providers/location_provider.dart';
+import 'package:listar_flutter_pro/providers/search_provider.dart';
 import 'package:listar_flutter_pro/utils/utils.dart';
 import 'package:provider/provider.dart';
 
@@ -40,6 +41,7 @@ void main() {
             ChangeNotifierProvider(create: (ctx) => LocationProvider()),
             ChangeNotifierProvider(create: (ctx) => EditListProvider()),
             ChangeNotifierProvider(create: (ctx) => EditListItemFormProvider()),
+            ChangeNotifierProvider(create: (ctx) => SearchProvider()),
 
           ],
         child: App()

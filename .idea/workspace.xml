@@ -25,6 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b95fbd6-fcc1-4cc1-b99b-f29f4425b4c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/providers/search_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/search_new/search.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/app_bar_search.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
@@ -37,15 +40,10 @@
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/edit_listing/product_item_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/edit_listing/product_item_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/providers/add_lisitItemProvider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/add_lisitItemProvider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/providers/edit_lisitItemProvider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/edit_lisitItemProvider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/providers/edit_list_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/edit_list_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/edit-listing/display_listing.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/edit-listing/display_listing.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/edit-listing/edit_product_detail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/edit-listing/edit_product_detail.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/configs/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/configs/routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/edit-listing/edit_stepper_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/edit-listing/edit_stepper_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/profile/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/profile/profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/display_list_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/display_list_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home/home_sliver_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/home_sliver_app_bar.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617726031560</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feature and tags activated">
+      <created>1617899735497</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617899735497</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,7 +188,8 @@
     <MESSAGE value="Data is added map is integrated" />
     <MESSAGE value="edit listing" />
     <MESSAGE value="edit listing added" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit listing added" />
+    <MESSAGE value="feature and tags activated" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature and tags activated" />
   </component>
   <component name="WindowStateProjectService">
     <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616691301866">
@@ -206,10 +212,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="506" y="113" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1617291733064" />
-    <state x="341" y="0" key="CommitChangelistDialog2" timestamp="1617726028138">
+    <state x="341" y="0" key="CommitChangelistDialog2" timestamp="1617899731641">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="341" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1617726028138" />
+    <state x="341" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1617899731641" />
     <state width="467" height="466" key="DebuggerActiveHint" timestamp="1617050729215">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -218,10 +224,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="467" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1617725715382" />
-    <state x="547" y="278" key="Github.Dialog.Accounts.Choose" timestamp="1617726356062">
+    <state x="547" y="278" key="Github.Dialog.Accounts.Choose" timestamp="1617899765218">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="547" y="278" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1617726356062" />
+    <state x="547" y="278" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1617899765218" />
     <state x="531" y="245" key="Github.ShareDialog" timestamp="1617726299748">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -230,22 +236,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="288" y="65" key="Github.UntrackedFilesDialog/0.0.1366.728@0.0.1366.728" timestamp="1616829610193" />
-    <state width="1322" height="143" key="GridCell.Tab.0.bottom" timestamp="1617898912343">
+    <state width="1322" height="2" key="GridCell.Tab.0.bottom" timestamp="1618042849840">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="143" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1617898912343" />
-    <state width="1322" height="143" key="GridCell.Tab.0.center" timestamp="1617898912342">
+    <state width="1322" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618042849840" />
+    <state width="1322" height="2" key="GridCell.Tab.0.center" timestamp="1618042849840">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="143" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1617898912342" />
-    <state width="1322" height="143" key="GridCell.Tab.0.left" timestamp="1617898912342">
+    <state width="1322" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1618042849840" />
+    <state width="1322" height="2" key="GridCell.Tab.0.left" timestamp="1618042849840">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="143" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1617898912342" />
-    <state width="1322" height="143" key="GridCell.Tab.0.right" timestamp="1617898912342">
+    <state width="1322" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1618042849840" />
+    <state width="1322" height="2" key="GridCell.Tab.0.right" timestamp="1618042849840">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="143" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1617898912342" />
+    <state width="1322" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1618042849840" />
     <state x="188" y="0" key="SettingsEditor" timestamp="1616829515525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -254,14 +260,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1617520087236" />
-    <state x="279" y="99" key="Vcs.Push.Dialog.v2" timestamp="1617726350898">
+    <state x="279" y="99" key="Vcs.Push.Dialog.v2" timestamp="1617899761250">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="279" y="99" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1617726350898" />
-    <state x="389" y="97" width="692" height="592" key="find.popup" timestamp="1617741057279">
+    <state x="279" y="99" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1617899761250" />
+    <state x="389" y="97" width="692" height="592" key="find.popup" timestamp="1618040066650">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="389" y="97" width="692" height="592" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1617741057279" />
+    <state x="389" y="97" width="692" height="592" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1618040066650" />
     <state x="394" y="155" key="git4idea.merge.GitPullDialog" timestamp="1617881854429">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
