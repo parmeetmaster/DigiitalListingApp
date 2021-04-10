@@ -24,7 +24,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b95fbd6-fcc1-4cc1-b99b-f29f4425b4c9" name="Default Changelist" comment="" />
+    <list default="true" id="9b95fbd6-fcc1-4cc1-b99b-f29f4425b4c9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618055290271</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feature and tags activated">
+      <created>1618055582301</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1618055582301</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,10 +208,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="506" y="113" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1617291733064" />
-    <state x="341" y="0" key="CommitChangelistDialog2" timestamp="1617899731641">
+    <state x="341" y="0" key="CommitChangelistDialog2" timestamp="1618055581505">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="341" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1617899731641" />
+    <state x="341" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1618055581505" />
     <state width="467" height="466" key="DebuggerActiveHint" timestamp="1617050729215">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -211,10 +220,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="467" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1617725715382" />
-    <state x="547" y="278" key="Github.Dialog.Accounts.Choose" timestamp="1617899765218">
+    <state x="547" y="278" key="Github.Dialog.Accounts.Choose" timestamp="1618055603206">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="547" y="278" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1617899765218" />
+    <state x="547" y="278" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1618055603206" />
     <state x="531" y="245" key="Github.ShareDialog" timestamp="1617726299748">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -247,10 +256,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1617520087236" />
-    <state x="279" y="99" key="Vcs.Push.Dialog.v2" timestamp="1617899761250">
+    <state x="279" y="99" key="Vcs.Push.Dialog.v2" timestamp="1618055598044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="279" y="99" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1617899761250" />
+    <state x="279" y="99" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1618055598044" />
     <state x="389" y="97" width="692" height="592" key="find.popup" timestamp="1618040066650">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
