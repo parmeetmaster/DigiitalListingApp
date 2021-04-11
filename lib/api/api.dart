@@ -8,6 +8,8 @@ import 'package:listar_flutter_pro/configs/constants.dart';
 import 'package:listar_flutter_pro/models/model.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import 'DioClientInstance.dart';
+
 class Api {
   ///URL API
   // static const String AUTH_LOGIN = "login";
@@ -51,17 +53,42 @@ class Api {
   static const String FEATURE = "/features";
   static const String TAGS = "/tags";
 
+  // search
+
+  Future<Response> getSearchResult(
+      int category_id, int cities_id, search_text) async {
+    Dio dio = ApiService().getclient();
+
+    var params =  {
+      "category": "${category_id}",
+      "location": "${cities_id}",
+      "search": search_text,
+    };
+
+    final result = await dio.post("/search_list",data: FormData.fromMap(params));
+    return result;
+  }
+
+  Future<Response> getCities() async {
+    Dio dio = ApiService().getclient();
+
+    final result = await dio.get("/search_city");
+    return result;
+  }
+
   // lsiting item
   ///category api
-   Future<dynamic> getCategoriesForListing() async {
+  Future<dynamic> getCategoriesForListing() async {
     final result = await httpManager.get(url: CATEGORY);
     return result;
   }
+
   ///features api
   Future<dynamic> getFeatureForListing() async {
     final result = await httpManager.get(url: FEATURE);
     return result;
   }
+
   ///tags api
   Future<dynamic> getTagsListing() async {
     final result = await httpManager.get(url: TAGS);
@@ -78,7 +105,9 @@ class Api {
     var dio = Dio();
     try {
       FormData formData = new FormData.fromMap(params);
-      var response = await dio.post("https://naxosoft.com/projects/itsme4u/api/state", data: formData);
+      var response = await dio.post(
+          "https://naxosoft.com/projects/itsme4u/api/state",
+          data: formData);
       return response.data;
     } catch (e) {
       print(e);
@@ -89,47 +118,48 @@ class Api {
     var dio = Dio();
     try {
       FormData formData = new FormData.fromMap(params);
-      var response = await dio.post("https://naxosoft.com/projects/itsme4u/api/city", data: formData);
+      var response = await dio.post(
+          "https://naxosoft.com/projects/itsme4u/api/city",
+          data: formData);
       return response.data;
     } catch (e) {
       print(e);
     }
   }
 
-    getApiClient(String token) async {
-     Dio _dio=new Dio();
+  getApiClient(String token) async {
+    Dio _dio = new Dio();
     _dio.interceptors.clear();
-     _dio.interceptors.add(PrettyDioLogger(
-       requestHeader: true,
-       requestBody: true,
-       responseBody: true,
-       responseHeader: false,
-       compact: false,
-     ));
+    _dio.interceptors.add(PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseBody: true,
+      responseHeader: false,
+      compact: false,
+    ));
 
-    _dio.interceptors
-        .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
-      // Do something before request is sent
-      options.headers["Authorization"] = "Bearer " + token;
-      return options;
-    },onResponse:(Response response) {
-      // Do something with response data
-      return response; // continue
-    }, onError: (DioError error) async {
-
-    }));
+    _dio.interceptors.add(InterceptorsWrapper(
+        onRequest: (RequestOptions options) {
+          // Do something before request is sent
+          options.headers["Authorization"] = "Bearer " + token;
+          return options;
+        },
+        onResponse: (Response response) {
+          // Do something with response data
+          return response; // continue
+        },
+        onError: (DioError error) async {}));
     _dio.options.baseUrl = "https://naxosoft.com/projects/itsme4u/api";
     return _dio;
   }
 
-   getPlaceName(List<Marker> markers,){
-    Dio dio =new Dio();
-    return  dio.post(
-         "https://maps.googleapis.com/maps/api/geocode/json?latlng=${markers.first.position.latitude},${markers.first.position.longitude}&key=${google_place_api_key}");
-
-   }
-
-
+  getPlaceName(
+    List<Marker> markers,
+  ) {
+    Dio dio = new Dio();
+    return dio.post(
+        "https://maps.googleapis.com/maps/api/geocode/json?latlng=${markers.first.position.latitude},${markers.first.position.longitude}&key=${google_place_api_key}");
+  }
 
   ///Login api
   static Future<dynamic> login(params) async {

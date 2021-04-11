@@ -3,13 +3,21 @@ import 'package:flutter/material.dart';
 class AppBarSearch extends StatefulWidget implements PreferredSizeWidget {
   Function onClickCategory;
   Function onClickCity;
+  Function onClickSubmit;
   TextEditingController searchtextController;
   TextEditingController citytextController;
   TextEditingController categorytextController;
+
   @override
   AppBarSearch(
-      {Key key, this.onClickCategory, this.onClickCity, this.searchtextController,this.citytextController,this.categorytextController})
-      : preferredSize = Size.fromHeight(kToolbarHeight + 100),
+      {Key key,
+      this.onClickCategory,
+      this.onClickCity,
+      this.searchtextController,
+      this.citytextController,
+      this.categorytextController,
+      this.onClickSubmit})
+      : preferredSize = Size.fromHeight(kToolbarHeight + 150),
         super(key: key);
 
   @override
@@ -30,6 +38,12 @@ class _AppBarSearchState extends State<AppBarSearch> {
               bottomRight: Radius.circular(20))),
       child: Column(
         children: [
+  /*        Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+            padding: EdgeInsets.only(top:50,left: 20),
+            child: Icon(Icons.close),),),
+          */
           Padding(
             padding: EdgeInsets.only(top: 50, left: 10, right: 10),
             child: TextField(
@@ -60,7 +74,7 @@ class _AppBarSearchState extends State<AppBarSearch> {
               children: [
                 Expanded(
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       widget.onClickCategory();
                     },
                     child: AbsorbPointer(
@@ -88,12 +102,11 @@ class _AppBarSearchState extends State<AppBarSearch> {
                 ),
                 Expanded(
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       widget.onClickCity();
                     },
                     child: AbsorbPointer(
                       child: Container(
-
                         padding: EdgeInsets.all(5),
                         child: TextField(
                           controller: widget.citytextController,
@@ -114,8 +127,34 @@ class _AppBarSearchState extends State<AppBarSearch> {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.6,
+            child: RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              onPressed: () {
+                widget.onClickSubmit();
+
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.search,color: Colors.white,),
+                  SizedBox(width: 5,),
+                  Text(
+                    "Search",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  SizedBox(width: 10,),
+                ],
+              ),
             ),
           )
         ],
