@@ -17,7 +17,7 @@ class AppBarSearch extends StatefulWidget implements PreferredSizeWidget {
       this.citytextController,
       this.categorytextController,
       this.onClickSubmit})
-      : preferredSize = Size.fromHeight(kToolbarHeight + 150),
+      : preferredSize = Size.fromHeight(kToolbarHeight + 200),
         super(key: key);
 
   @override
@@ -38,6 +38,9 @@ class _AppBarSearchState extends State<AppBarSearch> {
               bottomRight: Radius.circular(20))),
       child: Column(
         children: [
+          AppBar(title: Text("Search"),),
+
+
   /*        Align(
             alignment: Alignment.topLeft,
             child: Container(
@@ -45,7 +48,7 @@ class _AppBarSearchState extends State<AppBarSearch> {
             child: Icon(Icons.close),),),
           */
           Padding(
-            padding: EdgeInsets.only(top: 50, left: 10, right: 10),
+            padding: EdgeInsets.only(top: 20, left: 10, right: 10),
             child: TextField(
               controller: widget.searchtextController,
               textAlign: TextAlign.center,
