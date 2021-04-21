@@ -4,8 +4,9 @@ import 'package:listar_flutter_pro/screens/edit-listing/display_listing.dart';
 import 'package:listar_flutter_pro/screens/edit-listing/edit_list_item_screen.dart';
 import 'package:listar_flutter_pro/screens/edit-listing/edit_product_detail.dart';
 import 'package:listar_flutter_pro/screens/error_screen/no_locationError.dart';
+import 'package:listar_flutter_pro/screens/location/location_picker.dart';
 import 'package:listar_flutter_pro/screens/profile/add_list_item.dart';
-import 'file:///D:/Practice%20folder/wetransfer-a1ade2/source/lib/screens/location/location_picker.dart';
+
 import 'package:listar_flutter_pro/screens/screen.dart';
 import 'package:listar_flutter_pro/screens/search_new/search.dart';
 

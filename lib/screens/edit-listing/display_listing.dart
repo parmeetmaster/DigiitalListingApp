@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:listar_flutter_pro/configs/constants.dart';
 import 'package:listar_flutter_pro/configs/routes.dart';
@@ -18,6 +19,28 @@ class DisplayListing extends StatefulWidget {
 }
 
 class _DisplayListingState extends State<DisplayListing> {
+  _showDeleteWarning(int index){
+    final provider=Provider.of<EditListProvider>(context,listen: false);
+    AwesomeDialog(
+      context: context,
+      keyboardAware: true,
+      dismissOnBackKeyPress: false,
+      dialogType: DialogType.WARNING,
+      animType: AnimType.BOTTOMSLIDE,
+      btnCancelText: "Cancel",
+      btnOkText: "Submit",
+      title: 'Do you like Delete Listing Item',
+      padding: const EdgeInsets.all(16.0),
+      desc: 'Proceed',
+      btnCancelOnPress: () {
+      },
+      btnOkOnPress: () {
+        provider.deleteItem(dataListModel: provider.ls[index]);
+      },
+    ).show();
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +72,7 @@ class _DisplayListingState extends State<DisplayListing> {
                   child: Card(
                     child: DisplayListItem(
                       onDeletePress: () {
-                        value.deleteItem(dataListModel: value.ls[index]);
+                        _showDeleteWarning(index);
                       },
                       carrage: Carrage(dataListModel: value.ls[index]),
                       imageUrl: "${value.ls[index].image.thumb.url}",
@@ -69,6 +92,9 @@ class _DisplayListingState extends State<DisplayListing> {
           );
       }),
     );
+
+
+
   }
 
   @override

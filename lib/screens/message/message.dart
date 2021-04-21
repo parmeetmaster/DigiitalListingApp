@@ -10,20 +10,20 @@ import 'package:listar_flutter_pro/widgets/widget.dart';
 import 'package:share/share.dart';
 
 
-class Message extends StatefulWidget
+class AddVendorScreen extends StatefulWidget
 {
-  Message({Key key}) : super(key: key);
+  AddVendorScreen({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState()
   {
-    return _MessageState();
+    return _AddVendorScreenState();
   }
 }
 
 
 
-class _MessageState extends State<Message> {
+class _AddVendorScreenState extends State<AddVendorScreen> {
   @override
   void initState() {
     super.initState();

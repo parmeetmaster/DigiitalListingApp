@@ -323,6 +323,7 @@ class _DisplayListItemState extends State<DisplayListItem> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Expanded(
+                        flex:10,
                         child: InkWell(
                           onTap:(){
                             Navigator.pushNamed(context, EditListItemScreen.classname,arguments: widget.carrage);
@@ -346,6 +347,10 @@ class _DisplayListItemState extends State<DisplayListItem> {
                         ),
                       ),
                       Expanded(
+                        flex:1,
+                        child: SizedBox(width: 2,),),
+                      Expanded(
+                        flex:10,
                         child: InkWell(
                           onTap: widget.onDeletePress,
                           child: Container(

@@ -122,8 +122,8 @@ class _MainNavigationState extends State<MainNavigation> {
       ),
 
       BottomNavigationBarItem(
-        icon: Icon(Icons.message),
-        label: Translate.of(context).translate("message"),
+        icon: Icon(Icons.person_add_alt_1),// person parmeet change
+        label: Translate.of(context).translate("Add Vendor"),
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.notifications),
@@ -179,7 +179,7 @@ class _MainNavigationState extends State<MainNavigation> {
           return Scaffold(
             body: IndexedStack(
               index: _selectedIndex,
-              children: <Widget>[Home(), WishList(), Message() , Notifications(),Profile()],
+              children: <Widget>[Home(), WishList(), AddVendorScreen() , Notifications(),Profile()],
             ),
             bottomNavigationBar: BottomNavigationBar(
               items: _bottomBarItem(context),
